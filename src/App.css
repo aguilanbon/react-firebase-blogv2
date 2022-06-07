@@ -29,11 +29,17 @@ font-family: 'Ubuntu', sans-serif; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2em;
+  margin-top: 1em;
+  text-align: center;
 }
 
 .mobile-nav ul li {
   padding: .4em;
+  width: 100%;
+}
+
+.mobile-nav ul li:hover {
+  background-color: rgba(117, 117, 117, .3);
 }
 
 .mobile-nav ul li a {
@@ -45,7 +51,7 @@ font-family: 'Ubuntu', sans-serif; */
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 4em;
+  padding-right: 1em;
   color: white;
 }
 
@@ -54,6 +60,10 @@ font-family: 'Ubuntu', sans-serif; */
   border-radius: 20%; */
   cursor: pointer;
   padding: .5em;
+}
+
+.mobile-nav .close-btn p:hover {
+  border-bottom: 1px solid white;
 }
 
 /* NavBar */
