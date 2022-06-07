@@ -9,10 +9,16 @@ function MobileNav({ setFormState, setShowMobileNav }) {
             </div>
             <ul>
                 <li>
-                    <Link to='/' >Home</Link>
+                    <Link to='/' onClick={() => setShowMobileNav(false)}>Home</Link>
                 </li>
                 <li>
-                    <Link to='/user/login' onClick={() => setFormState('login')}>Log in</Link>
+                    <Link to='/blog/create' onClick={() => setShowMobileNav(false)}>Create</Link>
+                </li>
+                <li>
+                    <Link to='/user/login' onClick={() => {
+                        setShowMobileNav(false)
+                        setFormState('login')
+                    }}>Log in</Link>
                 </li>
             </ul>
         </div>
