@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import MobileNav from './MobileNav'
 
-function Navbar({ setFormState }) {
+function Navbar({ setFormState, isAuth }) {
 
   const navRef = useRef(null)
   const menuRef = useRef(null)
@@ -40,14 +40,14 @@ function Navbar({ setFormState }) {
           <ul>
             <i onClick={() => setShowMobileNav(true)} id='hamburger-btn' style={{ color: 'white' }} className="fas fa-solid fa-bars"></i>
             <li><Link to='/' >Home</Link></li>
-            <li><Link to='/blog/create' >Create</Link></li>
-            <li><Link to='/user/login' onClick={() => setFormState('login')}>Log in</Link></li>
+            {isAuth && <li><Link to='/blog/create' >Create</Link></li>}
+            {!isAuth && <li><Link to='/user/login' onClick={() => setFormState('login')}>Log in</Link></li>}
           </ul>
         }
       </div>
       {
         showMobileNav &&
-        <MobileNav setFormState={setFormState} setShowMobileNav={setShowMobileNav} />
+        <MobileNav setFormState={setFormState} setShowMobileNav={setShowMobileNav} isAuth={isAuth} />
       }
     </div >
   )

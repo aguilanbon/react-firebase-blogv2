@@ -1,7 +1,23 @@
-function Login({ setFormState, }) {
+import { auth, provider } from '../firebase-config'
+import { signInWithPopup } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom';
+
+function Login({ setFormState, setIsAuth }) {
+
+    let navigate = useNavigate()
+
+    const signInWithGoogle = () => {
+        signInWithPopup(auth, provider).then(res => {
+            console.log(res);
+            setIsAuth(true)
+            localStorage.setItem('auth', true)
+            navigate('/')
+        })
+    }
+
     return (
         <div className="googleAuth-container">
-            <button>Sign in with Google</button>
+            <button onClick={signInWithGoogle}>Sign in with Google</button>
             <form action="">
                 <div className="form-group">
                     <label htmlFor="email">Email @</label>
