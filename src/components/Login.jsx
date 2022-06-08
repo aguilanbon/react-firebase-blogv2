@@ -8,7 +8,6 @@ function Login({ setFormState, setIsAuth }) {
 
     const signInWithGoogle = () => {
         signInWithPopup(auth, provider).then(res => {
-            console.log(res);
             setIsAuth(true)
             localStorage.setItem('auth', true)
             navigate('/')
