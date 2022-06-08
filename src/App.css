@@ -138,7 +138,7 @@ font-family: 'Ubuntu', sans-serif; */
 .blog-card {
   width: 70%;
   margin-top: 2em;
-  max-height: 25em;
+  min-height: auto;
   margin-bottom: 1.5em;
 }
 
@@ -160,7 +160,7 @@ font-family: 'Ubuntu', sans-serif; */
 }
 
 .card-container__image {
-  height: 40%;
+  height: 30%;
 }
 
 .card-container__image img {
@@ -183,6 +183,9 @@ font-family: 'Ubuntu', sans-serif; */
   font-size: .85em;
   color: rgb(44, 44, 44);
   margin-top: 2em;
+  overflow: hidden;
+  overflow-y: auto;
+  max-height: 20em;
 }
 
 .card-container__content__footer p {

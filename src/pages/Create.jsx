@@ -41,7 +41,7 @@ function Create({ isAuth }) {
                     <label htmlFor="title">Blog Title</label>
                     <input type="text" name="title" id="" onChange={e => setTitle(e.target.value)} />
                     <label htmlFor="content">Content</label>
-                    <textarea name="content" id="" cols="30" rows="15" onChange={e => setContent(e.target.value)}></textarea>
+                    <textarea style={{ whiteSpace: 'pre-wrap' }} name="content" id="" cols="30" rows="15" onChange={e => setContent(e.target.value)}></textarea>
                     <input type="submit" value="Add Blog" />
                 </form>
             </div>

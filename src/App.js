@@ -9,7 +9,7 @@ import UserForm from './pages/UserForm';
 function App() {
 
   const [formState, setFormState] = useState('login')
-  const [isAuth, setIsAuth] = useState(false)
+  const [isAuth, setIsAuth] = useState(localStorage.getItem('auth'))
 
   return (
     <div className="App">

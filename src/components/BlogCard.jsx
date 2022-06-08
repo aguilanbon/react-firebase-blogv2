@@ -12,7 +12,7 @@ function BlogCard({ title, content, author }) {
                         <h1>{title}</h1>
                     </div>
                     <div className="card-container__content__body">
-                        <p>
+                        <p style={{ whiteSpace: 'pre-wrap' }}>
                             {content}
                         </p>
                     </div>
