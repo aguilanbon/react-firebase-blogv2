@@ -186,6 +186,7 @@ font-family: 'Ubuntu', sans-serif; */
 
 .form-container {
   display: flex;
+  flex-direction: column;
   padding: 2em;
   width: 35%;
   border: 1px solid rgba(77, 77, 77, .3);
@@ -253,6 +254,16 @@ font-family: 'Ubuntu', sans-serif; */
   margin-top: 1.5em;
   font-size: .8em;
   opacity: .8;
+}
+
+.googleAuth-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.googleAuth-container button {
+  padding: 1em 0;
+  cursor: pointer;
 }
 
 /* Create Container */
