@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function MobileNav({ setFormState, setShowMobileNav, isAuth }) {
+function MobileNav({ setFormState, setShowMobileNav, isAuth, signOutWithGoogle }) {
     return (
         <div className="mobile-nav">
             <div className="close-btn">
@@ -11,9 +11,16 @@ function MobileNav({ setFormState, setShowMobileNav, isAuth }) {
                 <li>
                     <Link to='/' onClick={() => setShowMobileNav(false)}>Home</Link>
                 </li>
-                {isAuth && <li>
-                    <Link to='/blog/create' onClick={() => setShowMobileNav(false)}>Create</Link>
-                </li>}
+                {isAuth &&
+                    <>
+                        <li>
+                            <Link to='/blog/create' onClick={() => setShowMobileNav(false)}>Create</Link>
+                        </li>
+                        <li>
+                            <button className='logout' href='#' onClick={signOutWithGoogle}>Sign out</button>
+                        </li>
+                    </>
+                }
                 {!isAuth && <li>
                     <Link to='/user/login' onClick={() => {
                         setShowMobileNav(false)

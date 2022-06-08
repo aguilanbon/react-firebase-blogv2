@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar setFormState={setFormState} isAuth={isAuth}/>
+      <Navbar setFormState={setFormState} isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/blog/create' element={<Create />}></Route>
