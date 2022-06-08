@@ -292,7 +292,7 @@ font-family: 'Ubuntu', sans-serif; */
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  padding-top: 5em;
+  padding-top: 2em;
   width: 100%;
   margin-bottom: 4em;
 }
@@ -381,7 +381,7 @@ font-family: 'Ubuntu', sans-serif; */
   }
 
   .create-form-container {
-    width: 45%;
+    width: 55%;
   }
 
   .create-form-container form {
