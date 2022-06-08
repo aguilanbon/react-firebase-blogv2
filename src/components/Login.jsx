@@ -16,7 +16,8 @@ function Login({ setFormState, setIsAuth }) {
 
     return (
         <div className="googleAuth-container">
-            <button onClick={signInWithGoogle}>Sign in with Google</button>
+
+            <button onClick={signInWithGoogle}><img src="../google.png" alt="" /> Sign in with Google</button>
             <form action="">
                 <div className="form-group">
                     <label htmlFor="email">Email @</label>

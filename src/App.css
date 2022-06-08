@@ -138,7 +138,8 @@ font-family: 'Ubuntu', sans-serif; */
 .blog-card {
   width: 70%;
   margin-top: 2em;
-  min-height: 25em;
+  max-height: 25em;
+  margin-bottom: 1.5em;
 }
 
 .card-container {
@@ -171,7 +172,7 @@ font-family: 'Ubuntu', sans-serif; */
 
 .card-container__content {
   font-family: 'Open Sans', sans-serif;
-  padding: 1em;
+  padding: 1em 2em;
 }
 
 .card-container__content__title h1 {
@@ -280,9 +281,21 @@ font-family: 'Ubuntu', sans-serif; */
   flex-direction: column;
 }
 
+.googleAuth-container img {
+  height: 32px;
+}
+
 .googleAuth-container button {
-  padding: 1em 0;
+  padding: .5em 0;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(117, 117, 117, .3);
+}
+
+.googleAuth-container button:hover {
+  background-color: rgba(239, 239, 239, 0.2);
 }
 
 /* Create Container */

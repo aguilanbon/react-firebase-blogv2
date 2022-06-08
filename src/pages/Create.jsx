@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { addDoc, collection } from 'firebase/firestore'
 import { db, auth } from '../firebase-config'
 import { useNavigate } from 'react-router-dom'
 
-function Create() {
+function Create({ isAuth }) {
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
@@ -22,6 +22,13 @@ function Create() {
         })
         navigate('/')
     }
+
+    useEffect(() => {
+        if (!isAuth) {
+            navigate('/')
+        }
+    }, [])
+
 
     return (
         <div className='create-container'>

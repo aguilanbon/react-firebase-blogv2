@@ -16,7 +16,7 @@ function App() {
       <Navbar setFormState={setFormState} isAuth={isAuth} setIsAuth={setIsAuth}/>
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path='/blog/create' element={<Create />}></Route>
+          <Route path='/blog/create' element={<Create isAuth={isAuth} />}></Route>
           <Route path='/user/login' element={<UserForm setFormState={setFormState} formState={formState} setIsAuth={setIsAuth} />}></Route>
         </Routes>
     </div>
