@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { addDoc, collection } from 'firebase/firestore'
 import { db, auth } from '../firebase-config'
 import { useNavigate } from 'react-router-dom'
 
-function Create() {
+function Create({ isAuth }) {
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
@@ -23,6 +23,13 @@ function Create() {
         navigate('/')
     }
 
+    useEffect(() => {
+        if (!isAuth) {
+            navigate('/')
+        }
+    }, [])
+
+
     return (
         <div className='create-container'>
             <h1>Add New Blog</h1>
@@ -34,7 +41,7 @@ function Create() {
                     <label htmlFor="title">Blog Title</label>
                     <input type="text" name="title" id="" onChange={e => setTitle(e.target.value)} />
                     <label htmlFor="content">Content</label>
-                    <textarea name="content" id="" cols="30" rows="15" onChange={e => setContent(e.target.value)}></textarea>
+                    <textarea style={{ whiteSpace: 'pre-wrap' }} name="content" id="" cols="30" rows="15" onChange={e => setContent(e.target.value)}></textarea>
                     <input type="submit" value="Add Blog" />
                 </form>
             </div>

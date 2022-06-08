@@ -1,12 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BlogCard from '../components/BlogCard'
+import { getDocs, collection } from 'firebase/firestore'
+import { db } from '../firebase-config'
 
 function Home() {
+
+  const [posts, setPosts] = useState([])
+
+  const postsCollection = collection(db, 'posts')
+
+  useEffect(() => {
+    const getPosts = async () => {
+      const response = await getDocs(postsCollection)
+      setPosts(response.docs.map(doc => ({ ...doc.data(), id: doc.id })))
+    }
+    getPosts()
+  }, [])
+
+  console.log(posts);
   return (
     <div className='home-container'>
       <h1 style={{ marginTop: '1em', opacity: '.8' }}>Welcome</h1>
-      <BlogCard />
-      <BlogCard />
+      {posts.map((post, i) => (
+        <BlogCard key={post.id} title={post.title} content={post.content} author={post.author} />
+      ))}
     </div>
   )
 }
