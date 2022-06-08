@@ -48,6 +48,11 @@ font-family: 'Ubuntu', sans-serif; */
   text-decoration: none;
 }
 
+.mobile-nav ul li a:hover {
+  border-bottom: 1px solid white;
+  opacity: .8;
+}
+
 .mobile-nav .close-btn {
   display: flex;
   align-items: center;
@@ -98,6 +103,20 @@ font-family: 'Ubuntu', sans-serif; */
 }
 
 .nav ul li a:hover {
+  border-bottom: 1px solid white;
+  opacity: .8;
+}
+
+.logout {
+  border: none;
+  color: white;
+  background-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.logout:hover {
   border-bottom: 1px solid white;
   opacity: .8;
 }
@@ -186,6 +205,7 @@ font-family: 'Ubuntu', sans-serif; */
 
 .form-container {
   display: flex;
+  flex-direction: column;
   padding: 2em;
   width: 35%;
   border: 1px solid rgba(77, 77, 77, .3);
@@ -253,6 +273,16 @@ font-family: 'Ubuntu', sans-serif; */
   margin-top: 1.5em;
   font-size: .8em;
   opacity: .8;
+}
+
+.googleAuth-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.googleAuth-container button {
+  padding: 1em 0;
+  cursor: pointer;
 }
 
 /* Create Container */
