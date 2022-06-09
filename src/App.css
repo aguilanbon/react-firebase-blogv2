@@ -383,10 +383,18 @@ font-family: 'Ubuntu', sans-serif; */
 /* User Messages */
 
 .userMessage-container {
-  padding: 1em;
-  background-color: rgb(72, 234, 72);
+  padding: 1em 2em;
   color: white;
   border-radius: .5em;
+  font-size: .6em;
+}
+
+.success {
+  background-color: rgb(72, 234, 72);
+}
+
+.danger {
+  background-color: rgb(237, 67, 67);
 }
 
 .active {
