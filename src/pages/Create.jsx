@@ -35,7 +35,7 @@ function Create({ isAuth }) {
 
     return (
         <motion.div animate={{ x: [-150, 0] }} transition={{ duration: 1 }} className='create-container'>
-            <h1>Add New Blog</h1>
+            {/* <h1>Add New Blog</h1> */}
             <div className="create-form-container">
                 <form action="" onSubmit={e => {
                     e.preventDefault()
