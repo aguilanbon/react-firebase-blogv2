@@ -189,6 +189,19 @@ font-family: 'Ubuntu', sans-serif; */
   max-height: 20em;
 }
 
+.card-container__content__body p::-webkit-scrollbar {
+  width: .3em;
+} 
+
+.card-container__content__body p::-webkit-scrollbar-track {
+  background: #f1f1f1;
+} 
+
+.card-container__content__body p::-webkit-scrollbar-thumb {
+  background: rgba(64, 64, 194, .6);
+  border-radius: .5em;
+} 
+
 .card-container__content__footer p {
   font-size: .8em;
   opacity: .7;
