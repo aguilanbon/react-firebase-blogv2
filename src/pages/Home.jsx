@@ -21,7 +21,7 @@ function Home() {
     <div className='home-container'>
       <h1 style={{ marginTop: '1em', opacity: '.8' }}>Welcome</h1>
       {posts.map((post, i) => (
-        <BlogCard key={post.id} title={post.title} content={post.content} author={post.author} />
+        <BlogCard key={post.id} title={post.title} content={post.content} author={post.author} uri={post.bannerURI} />
       ))}
     </div>
   )

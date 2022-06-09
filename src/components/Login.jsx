@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion'
 
-function Login({ setFormState, setIsAuth, setUserMessage }) {
+function Login({ setFormState, setIsAuth, setUserMessage, setMessageColor }) {
 
     const [signInEmail, setSignInEmail] = useState('')
     const [signInPassword, setSignInPassword] = useState('')
@@ -19,10 +19,17 @@ function Login({ setFormState, setIsAuth, setUserMessage }) {
     }
 
     const signIn = async () => {
-        await signInWithEmailAndPassword(auth, signInEmail, signInPassword)
-        setIsAuth(true)
-        localStorage.setItem('auth', true)
-        navigate('/')
+        try {
+            await signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+            setIsAuth(true)
+            localStorage.setItem('auth', true)
+            navigate('/')
+        } catch (error) {
+            if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+                setMessageColor('danger')
+                setUserMessage('Email or Password Incorrect')
+            }
+        }
     }
 
     return (

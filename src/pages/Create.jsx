@@ -1,20 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { addDoc, collection } from 'firebase/firestore'
-import { db, auth } from '../firebase-config'
+import { db, auth, storage } from '../firebase-config'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { v4 } from 'uuid'
 
 function Create({ isAuth, setIsActive }) {
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [isLoading, setIsLoading] = useState(false)
+    const [image, setImage] = useState(null)
 
     const postsCollection = collection(db, 'posts')
 
     const navigate = useNavigate()
 
     const createPost = async () => {
+        await imageUpload()
         setIsLoading(true)
         setIsActive('')
         await addDoc(postsCollection, {
@@ -22,9 +26,16 @@ function Create({ isAuth, setIsActive }) {
             author: {
                 name: auth.currentUser.displayName,
                 id: auth.currentUser.uid
-            }
+            }, bannerURI: image
         })
         navigate('/')
+    }
+
+    const imageUpload = async () => {
+        const imageRef = ref(storage, `blogBanners/${image.name + v4()}`)
+        await uploadBytes(imageRef, image)
+        const imgURI = await getDownloadURL(imageRef)
+        setImage(imgURI)
     }
 
     useEffect(() => {
@@ -33,7 +44,6 @@ function Create({ isAuth, setIsActive }) {
         }
     })
 
-
     return (
         <motion.div animate={{ x: [-150, 0] }} transition={{ duration: 1 }} className='create-container'>
             <div className="create-form-container">
@@ -41,6 +51,7 @@ function Create({ isAuth, setIsActive }) {
                     e.preventDefault()
                     createPost()
                 }}>
+                    <input type="file" name="" id="" onChange={e => setImage(e.target.files[0])} />
                     <label htmlFor="title">Blog Title</label>
                     <input type="text" name="title" id="" onChange={e => setTitle(e.target.value)} />
                     <label htmlFor="content">Content</label>

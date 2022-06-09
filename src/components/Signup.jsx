@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../firebase-config'
 import { motion } from 'framer-motion'
 
-function Signup({ setUserMessage, setFormState }) {
+function Signup({ setUserMessage, setFormState, setMessageColor }) {
 
     const [signUpEmail, setSignUpEmail] = useState('')
     const [signUpPassword, setSignUpPassword] = useState('')
@@ -14,6 +14,7 @@ function Signup({ setUserMessage, setFormState }) {
             const newUser = await createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
             await updateProfile(newUser.user, { displayName: signUpName })
             setFormState('login')
+            setMessageColor('success')
             setUserMessage('Yay! you may now log in.')
         } catch (error) {
             console.log(error);
