@@ -382,6 +382,12 @@ font-family: 'Ubuntu', sans-serif; */
   width: auto;
 }
 
+.create-form-container form input[type="file"] {
+  display: flex;
+  width: 100%;
+  margin: 1.5em 0;
+}
+
 /* User Messages */
 
 .userMessage-container {

@@ -59,7 +59,8 @@ function Create({ isAuth, setIsActive }) {
                     e.preventDefault()
                     createPost()
                 }}>
-                    <input type="file" name="" id="" onChange={e => setImage(e.target.files[0])} />
+                    <label htmlFor="image">Banner Image</label>
+                    <input type="file" name="image" id="" onChange={e => setImage(e.target.files[0])} />
                     <label htmlFor="title">Blog Title</label>
                     <input type="text" name="title" id="" onChange={e => setTitle(e.target.value)} />
                     <label htmlFor="content">Content</label>
