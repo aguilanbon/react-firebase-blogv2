@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 function MobileNav({ setFormState, setShowMobileNav, isAuth, signOutWithGoogle }) {
     return (
-        <div className="mobile-nav">
+        <motion.div animate={{ opacity: [0, 1] }} transition={{ duration: .3 }} className="mobile-nav">
             <div className="close-btn">
                 <p onClick={() => setShowMobileNav(false)}>X</p>
             </div>
@@ -28,7 +29,7 @@ function MobileNav({ setFormState, setShowMobileNav, isAuth, signOutWithGoogle }
                     }}>Log in</Link>
                 </li>}
             </ul>
-        </div>
+        </motion.div>
     )
 }
 

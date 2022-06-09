@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../firebase-config'
-import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 function Signup({ setUserMessage, setFormState }) {
 
@@ -21,7 +21,7 @@ function Signup({ setUserMessage, setFormState }) {
     }
 
     return (
-        <form onSubmit={(e) => {
+        <motion.form animate={{ opacity: [0, 1] }} transition={{ duration: .7 }} onSubmit={(e) => {
             e.preventDefault()
             signUp()
         }}>
@@ -43,7 +43,7 @@ function Signup({ setUserMessage, setFormState }) {
             <div className="form-footer">
                 <p>You're almost ready to post a blog!</p>
             </div>
-        </form>
+        </motion.form>
     )
 }
 

@@ -7,9 +7,8 @@ function Home() {
 
   const [posts, setPosts] = useState([])
 
-  const postsCollection = collection(db, 'posts')
-
   useEffect(() => {
+    const postsCollection = collection(db, 'posts')
     const getPosts = async () => {
       const response = await getDocs(postsCollection)
       setPosts(response.docs.map(doc => ({ ...doc.data(), id: doc.id })))

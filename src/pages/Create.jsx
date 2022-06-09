@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { addDoc, collection } from 'firebase/firestore'
 import { db, auth } from '../firebase-config'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 function Create({ isAuth }) {
 
@@ -33,7 +34,7 @@ function Create({ isAuth }) {
 
 
     return (
-        <div className='create-container'>
+        <motion.div animate={{ x: [-150, 0] }} transition={{ duration: 1 }} className='create-container'>
             <h1>Add New Blog</h1>
             <div className="create-form-container">
                 <form action="" onSubmit={e => {
@@ -47,7 +48,7 @@ function Create({ isAuth }) {
                     <input type="submit" value={isLoading === true ? 'posting...' : 'post'} />
                 </form>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

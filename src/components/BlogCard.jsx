@@ -1,13 +1,15 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 function BlogCard({ title, content, author }) {
     return (
-        <div className='blog-card'>
+        <motion.div whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }} className='blog-card'>
             <div className="card-container">
                 {/* <div className="card-container__image">
                     <img src="../z.png" alt="" />
                 </div> */}
-                <div className="card-container__content">
+                <motion.div animate={{ x: [-150, 0] }} transition={{ duration: 1 }} className="card-container__content">
                     <div className="card-container__content__title">
                         <h1>{title}</h1>
                     </div>
@@ -19,9 +21,9 @@ function BlogCard({ title, content, author }) {
                     <div className="card-container__content__footer">
                         <p>By: {author.name}</p>
                     </div>
-                </div>
+                </motion.div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 
