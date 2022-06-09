@@ -366,6 +366,15 @@ font-family: 'Ubuntu', sans-serif; */
   color: white;
 }
 
+/* User Messages */
+
+.userMessage-container {
+  padding: 1em;
+  background-color: rgb(72, 234, 72);
+  color: white;
+  border-radius: .5em;
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1280px) {
