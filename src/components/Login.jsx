@@ -3,19 +3,18 @@ import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-function Login({ setFormState, setIsAuth }) {
+function Login({ setFormState, setIsAuth, setUserMessage }) {
 
     const [signInEmail, setSignInEmail] = useState('')
     const [signInPassword, setSignInPassword] = useState('')
 
     let navigate = useNavigate()
 
-    const signInWithGoogle = () => {
-        signInWithPopup(auth, provider).then(res => {
-            setIsAuth(true)
-            localStorage.setItem('auth', true)
-            navigate('/')
-        })
+    const signInWithGoogle = async () => {
+        await signInWithPopup(auth, provider)
+        setIsAuth(true)
+        localStorage.setItem('auth', true)
+        navigate('/')
     }
 
     const signIn = async () => {
@@ -44,7 +43,10 @@ function Login({ setFormState, setIsAuth }) {
                     <input type="submit" value="Log In" />
                 </div>
                 <div className="form-footer">
-                    <p>Not yet signed up? <span style={linkStyle} onClick={() => setFormState('signup')}>Click Here!</span></p>
+                    <p>Not yet signed up? <span style={linkStyle} onClick={() => {
+                        setUserMessage('')
+                        setFormState('signup')
+                    }}>Click Here!</span></p>
                 </div>
             </form>
         </div>

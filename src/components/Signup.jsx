@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../firebase-config'
 
-function Signup() {
+function Signup({ setUserMessage, setFormState }) {
 
     const [signUpEmail, setSignUpEmail] = useState('')
     const [signUpPassword, setSignUpPassword] = useState('')
@@ -12,6 +12,8 @@ function Signup() {
         try {
             const newUser = await createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
             await updateProfile(newUser.user, { displayName: signUpName })
+            setFormState('login')
+            setUserMessage('Yay! you may now log in.')
         } catch (error) {
             console.log(error);
         }

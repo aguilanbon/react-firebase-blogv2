@@ -264,6 +264,7 @@ font-family: 'Ubuntu', sans-serif; */
   background-color: rgb(83, 83, 190);
   color: white;
   border-radius: .5em;
+  width: auto;
 }
 
 .form-group input[type="submit"]:hover {
@@ -364,6 +365,16 @@ font-family: 'Ubuntu', sans-serif; */
   border: none;
   background-color: rgb(64, 64, 194);
   color: white;
+  width: auto;
+}
+
+/* User Messages */
+
+.userMessage-container {
+  padding: 1em;
+  background-color: rgb(72, 234, 72);
+  color: white;
+  border-radius: .5em;
 }
 
 /* Media Queries */
