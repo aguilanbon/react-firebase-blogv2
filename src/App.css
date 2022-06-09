@@ -19,9 +19,10 @@ font-family: 'Ubuntu', sans-serif; */
   position: absolute;
   z-index: 3;
   width: 100%;
-  height: auto;
+  max-height: auto;
   background-color: rgb(31, 31, 31);
   padding-bottom: 2em;
+  transition: max-height 2s ease;
 }
 
 .mobile-nav ul {
