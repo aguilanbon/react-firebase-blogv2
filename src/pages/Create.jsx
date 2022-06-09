@@ -7,12 +7,14 @@ function Create({ isAuth }) {
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
 
     const postsCollection = collection(db, 'posts')
 
-    let navigate = useNavigate()
+    const navigate = useNavigate()
 
     const createPost = async () => {
+        setIsLoading(true)
         await addDoc(postsCollection, {
             title, content,
             author: {
@@ -27,7 +29,7 @@ function Create({ isAuth }) {
         if (!isAuth) {
             navigate('/')
         }
-    }, [])
+    })
 
 
     return (
@@ -42,7 +44,7 @@ function Create({ isAuth }) {
                     <input type="text" name="title" id="" onChange={e => setTitle(e.target.value)} />
                     <label htmlFor="content">Content</label>
                     <textarea style={{ whiteSpace: 'pre-wrap' }} name="content" id="" cols="30" rows="15" onChange={e => setContent(e.target.value)}></textarea>
-                    <input type="submit" value="Add Blog" />
+                    <input type="submit" value={isLoading === true ? 'posting...' : 'post'} />
                 </form>
             </div>
         </div>
