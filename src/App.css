@@ -157,7 +157,7 @@ font-family: 'Ubuntu', sans-serif; */
 .card-container:hover {
   cursor: pointer;
   box-shadow: .5em .5em rgba(117, 117, 117, .3);
-  margin-top: -.5em;
+  /* margin-top: -.5em; */
 }
 
 .card-container__image {
@@ -188,6 +188,19 @@ font-family: 'Ubuntu', sans-serif; */
   overflow-y: auto;
   max-height: 20em;
 }
+
+.card-container__content__body p::-webkit-scrollbar {
+  width: .3em;
+} 
+
+.card-container__content__body p::-webkit-scrollbar-track {
+  background: #f1f1f1;
+} 
+
+.card-container__content__body p::-webkit-scrollbar-thumb {
+  background: rgba(64, 64, 194, .6);
+  border-radius: .5em;
+} 
 
 .card-container__content__footer p {
   font-size: .8em;
@@ -409,7 +422,7 @@ font-family: 'Ubuntu', sans-serif; */
   }
 
   .create-form-container {
-    width: 55%;
+    width: 65%;
   }
 
   .create-form-container form {
@@ -426,6 +439,18 @@ font-family: 'Ubuntu', sans-serif; */
 
   .form-container {
     width: 45%;
+  }
+
+  .create-container {
+    width: 90%;
+  }
+
+  .create-form-container {
+    width: 80%;
+  }
+
+  .create-form-container form {
+    width: 100%;
   }
 }
 
@@ -459,7 +484,7 @@ font-family: 'Ubuntu', sans-serif; */
   }
 
   .create-form-container {
-    width: 80%;
+    width: 100%;
   }
 
   .create-form-container form {

@@ -2,6 +2,7 @@ import { auth, provider } from '../firebase-config'
 import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { motion } from 'framer-motion'
 
 function Login({ setFormState, setIsAuth, setUserMessage }) {
 
@@ -25,7 +26,7 @@ function Login({ setFormState, setIsAuth, setUserMessage }) {
     }
 
     return (
-        <div className="googleAuth-container">
+        <motion.div animate={{ opacity: [0, 1] }} transition={{ duration: .7 }} className="googleAuth-container">
             <button onClick={signInWithGoogle}><img src="../google.png" alt="" /> Sign in with Google</button>
             <form onSubmit={e => {
                 e.preventDefault()
@@ -49,7 +50,7 @@ function Login({ setFormState, setIsAuth, setUserMessage }) {
                     }}>Click Here!</span></p>
                 </div>
             </form>
-        </div>
+        </motion.div>
     )
 }
 
