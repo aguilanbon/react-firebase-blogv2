@@ -105,7 +105,7 @@ font-family: 'Ubuntu', sans-serif; */
 
 .nav ul li a:hover {
   border-bottom: 1px solid white;
-  opacity: .8;
+  /* opacity: .8; */
 }
 
 .logout {
@@ -347,7 +347,6 @@ font-family: 'Ubuntu', sans-serif; */
   width: 100%;
   box-shadow: .5em .5em rgba(117, 117, 117, .3);
   border: 1px solid rgba(117, 117, 117, .3);
-  border-top: 4px solid rgb(54, 54, 238);
   border-radius: .5em;
   padding: 2em 3em;
 }
@@ -388,6 +387,10 @@ font-family: 'Ubuntu', sans-serif; */
   background-color: rgb(72, 234, 72);
   color: white;
   border-radius: .5em;
+}
+
+.active {
+  border-bottom: 2px solid rgb(53, 53, 209);
 }
 
 /* Media Queries */

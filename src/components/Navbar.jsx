@@ -4,7 +4,7 @@ import MobileNav from './MobileNav'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase-config'
 
-function Navbar({ setFormState, isAuth, setIsAuth }) {
+function Navbar({ setFormState, isAuth, setIsAuth, setIsActive, isActive }) {
 
   const navRef = useRef(null)
   const menuRef = useRef(null)
@@ -52,20 +52,26 @@ function Navbar({ setFormState, isAuth, setIsAuth }) {
         {!showMobileNav &&
           <ul>
             <i onClick={() => setShowMobileNav(true)} id='hamburger-btn' style={{ color: 'white' }} className="fas fa-solid fa-bars"></i>
-            <li><Link to='/' >Home</Link></li>
+            <li className={isActive === 'home' ? `active` : ''} onClick={() => setIsActive('home')}><Link to='/' >Home</Link></li>
             {isAuth &&
               <>
-                <li><Link to='/blog/create' >Create</Link></li>
-                <li><button className='logout' href='#' onClick={signOutWithGoogle}>Sign out</button></li>
+                <li className={isActive === 'create' ? `active` : ''} onClick={() => setIsActive('create')}><Link to='/blog/create' >Create</Link></li>
+                <li><button className='logout' href='#' onClick={() => {
+                  setIsActive('')
+                  signOutWithGoogle()
+                }}>Sign out</button></li>
               </>
             }
-            {!isAuth && <li><Link to='/user/login' onClick={() => setFormState('login')}>Log in</Link></li>}
+            {!isAuth && <li className={isActive === 'login' ? `active` : ''}><Link to='/user/login' onClick={() => {
+              setIsActive('login')
+              setFormState('login')
+            }}>Log in</Link></li>}
           </ul>
         }
       </div>
       {
         showMobileNav &&
-        <MobileNav setFormState={setFormState} setShowMobileNav={setShowMobileNav} isAuth={isAuth} signOutWithGoogle={signOutWithGoogle} />
+        <MobileNav setFormState={setFormState} setShowMobileNav={setShowMobileNav} isAuth={isAuth} signOutWithGoogle={signOutWithGoogle} setIsActive={setIsActive} isActive={isActive} />
       }
     </div >
   )

@@ -4,7 +4,7 @@ import { db, auth } from '../firebase-config'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
-function Create({ isAuth }) {
+function Create({ isAuth, setIsActive }) {
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
@@ -16,6 +16,7 @@ function Create({ isAuth }) {
 
     const createPost = async () => {
         setIsLoading(true)
+        setIsActive('')
         await addDoc(postsCollection, {
             title, content,
             author: {
@@ -35,7 +36,6 @@ function Create({ isAuth }) {
 
     return (
         <motion.div animate={{ x: [-150, 0] }} transition={{ duration: 1 }} className='create-container'>
-            <h1>Add New Blog</h1>
             <div className="create-form-container">
                 <form action="" onSubmit={e => {
                     e.preventDefault()
