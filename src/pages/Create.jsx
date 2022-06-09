@@ -12,7 +12,8 @@ function Create({ isAuth, setIsActive }) {
     const [content, setContent] = useState('')
     const [isLoading, setIsLoading] = useState(false)
     const [image, setImage] = useState(null)
-    const [imageURL, setImgURL] = useState('')
+
+    let imgURL = ''
 
     const postsCollection = collection(db, 'posts')
 
@@ -24,11 +25,11 @@ function Create({ isAuth, setIsActive }) {
         try {
             await imageUpload()
             await addDoc(postsCollection, {
-                title, content,
+                title, content, imageURL: imgURL,
                 author: {
                     name: auth.currentUser.displayName,
                     id: auth.currentUser.uid
-                }, bannerURI: imageURL
+                }
             })
             navigate('/')
 
@@ -39,11 +40,10 @@ function Create({ isAuth, setIsActive }) {
 
     const imageUpload = async () => {
         if (image == null) return
-
         const imageRef = ref(storage, `blogBanners/${image.name + v4()}`)
         await uploadBytes(imageRef, image)
         const imgURI = await getDownloadURL(imageRef)
-        setImgURL(imgURI)
+        imgURL = imgURI
     }
 
     useEffect(() => {
