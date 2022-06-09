@@ -13,29 +13,37 @@ function Create({ isAuth, setIsActive }) {
     const [isLoading, setIsLoading] = useState(false)
     const [image, setImage] = useState(null)
 
+    let imgURL = ''
+
     const postsCollection = collection(db, 'posts')
 
     const navigate = useNavigate()
 
     const createPost = async () => {
-        await imageUpload()
         setIsLoading(true)
         setIsActive('')
-        await addDoc(postsCollection, {
-            title, content,
-            author: {
-                name: auth.currentUser.displayName,
-                id: auth.currentUser.uid
-            }, bannerURI: image
-        })
-        navigate('/')
+        try {
+            await imageUpload()
+            await addDoc(postsCollection, {
+                title, content, imageURL: imgURL,
+                author: {
+                    name: auth.currentUser.displayName,
+                    id: auth.currentUser.uid
+                }
+            })
+            navigate('/')
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const imageUpload = async () => {
+        if (image == null) return
         const imageRef = ref(storage, `blogBanners/${image.name + v4()}`)
         await uploadBytes(imageRef, image)
         const imgURI = await getDownloadURL(imageRef)
-        setImage(imgURI)
+        imgURL = imgURI
     }
 
     useEffect(() => {
