@@ -108,6 +108,10 @@ font-family: 'Ubuntu', sans-serif; */
   opacity: .8;
 }
 
+.active {
+  color: rgb(218, 215, 250)
+}
+
 .logout {
   border: none;
   color: white;
