@@ -11,7 +11,7 @@ function BlogCard({ title, content, author, uri }) {
     // }
 
     return (
-        <motion.div whileHover={{ scale: 1.1 }}
+        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.8 }}
             className='blog-card'>
             <div className="card-container">
                 <motion.div animate={{ opacity: [0, 1] }} transition={{ duration: 2 }} className="card-container__image">
