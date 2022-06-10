@@ -16,12 +16,11 @@ function Home() {
     getPosts()
   }, [])
 
-  console.log(posts);
   return (
     <div className='home-container'>
       <h1 style={{ marginTop: '1em', opacity: '.8' }}>Welcome</h1>
       {posts.map((post, i) => (
-        <BlogCard key={post.id} title={post.title} content={post.content} author={post.author} uri={post.imageURL} />
+        <BlogCard key={post.id} title={post.title} content={post.content} author={post.author} uri={post.imageURL} postId={post.id} />
       ))}
     </div>
   )
