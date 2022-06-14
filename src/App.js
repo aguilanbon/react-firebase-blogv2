@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Create from './pages/Create';
 import UserForm from './pages/UserForm';
+import { BlogProvider } from './BlogContext';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
   const [isActive, setIsActive] = useState()
 
   return (
+    <BlogProvider>
     <div className="App">
       <Navbar setFormState={setFormState} isAuth={isAuth} setIsAuth={setIsAuth} setIsActive={setIsActive} isActive={isActive}/>
         <Routes>
@@ -21,6 +23,7 @@ function App() {
           <Route path='/user/login' element={<UserForm setFormState={setFormState} formState={formState} setIsAuth={setIsAuth} />}></Route>
         </Routes>
     </div>
+    </BlogProvider>
   );
 }
 

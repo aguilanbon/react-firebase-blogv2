@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { motion } from 'framer-motion'
 
-function Login({ setFormState, setIsAuth, setUserMessage, setMessageColor }) {
+function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage }) {
 
     const [signInEmail, setSignInEmail] = useState('')
     const [signInPassword, setSignInPassword] = useState('')
