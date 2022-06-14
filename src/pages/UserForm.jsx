@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Login from '../components/Login'
 import Signup from '../components/Signup'
+import BlogContext from '../BlogContext';
 
 function UserForm({ formState, setFormState, setIsAuth }) {
 
-    const [userMessage, setUserMessage] = useState('')
-    const [messageColor, setMessageColor] = useState('')
+    const {messageColor, userMessage, setMessageColor, setUserMessage} = useContext(BlogContext)
 
     return (
         <div className='user-form'>
