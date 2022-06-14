@@ -3,9 +3,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import MobileNav from './MobileNav'
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase-config'
+import { useContext } from 'react'
+import BlogContext from '../BlogContext'
 
 function Navbar({ setFormState, isAuth, setIsAuth, setIsActive, isActive }) {
 
+  const {setUserMessage} = useContext(BlogContext)
+ 
   const navRef = useRef(null)
   const menuRef = useRef(null)
   const [showMobileNav, setShowMobileNav] = useState(false)
@@ -65,6 +69,7 @@ function Navbar({ setFormState, isAuth, setIsAuth, setIsActive, isActive }) {
             {!isAuth && <li className={isActive === 'login' ? `active` : ''}><Link to='/user/login' onClick={() => {
               setIsActive('login')
               setFormState('login')
+              setUserMessage('')
             }}>Log in</Link></li>}
           </ul>
         }

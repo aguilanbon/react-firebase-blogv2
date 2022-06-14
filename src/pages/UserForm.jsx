@@ -5,7 +5,7 @@ import BlogContext from '../BlogContext';
 
 function UserForm({ formState, setFormState, setIsAuth }) {
 
-    const {messageColor, userMessage, setMessageColor, setUserMessage} = useContext(BlogContext)
+    const { messageColor, userMessage, setMessageColor, setUserMessage } = useContext(BlogContext)
 
     return (
         <div className='user-form'>
