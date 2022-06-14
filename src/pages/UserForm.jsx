@@ -3,9 +3,9 @@ import Login from '../components/Login'
 import Signup from '../components/Signup'
 import BlogContext from '../BlogContext';
 
-function UserForm({ formState, setFormState, setIsAuth }) {
+function UserForm() {
 
-    const { messageColor, userMessage, setMessageColor, setUserMessage } = useContext(BlogContext)
+    const { messageColor, userMessage, setMessageColor, setUserMessage, formState, setFormState, setIsAuth } = useContext(BlogContext)
 
     return (
         <div className='user-form'>

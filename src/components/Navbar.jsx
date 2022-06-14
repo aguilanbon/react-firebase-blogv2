@@ -6,9 +6,9 @@ import { auth } from '../firebase-config'
 import { useContext } from 'react'
 import BlogContext from '../BlogContext'
 
-function Navbar({ setFormState, isAuth, setIsAuth, setIsActive, isActive }) {
+function Navbar() {
 
-  const {setUserMessage} = useContext(BlogContext)
+  const { setUserMessage, setFormState, isAuth, setIsAuth, setIsActive, isActive } = useContext(BlogContext)
  
   const navRef = useRef(null)
   const menuRef = useRef(null)
