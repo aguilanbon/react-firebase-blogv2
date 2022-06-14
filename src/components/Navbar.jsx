@@ -24,7 +24,6 @@ function Navbar() {
     setShowMobileNav(false)
   }
 
-
   useEffect(() => {
     let handler = document.addEventListener('mousedown', (e) => {
       if (!menuRef.current.contains(e.target)) {
