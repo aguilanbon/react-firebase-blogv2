@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import Login from '../components/Login'
 import Signup from '../components/Signup'
 import BlogContext from '../BlogContext';
+import Alerts from '../components/Alerts'
 
 function UserForm() {
 
@@ -10,9 +11,7 @@ function UserForm() {
     return (
         <div className='user-form'>
             {userMessage === '' ? '' :
-                <div className={`userMessage-container ${messageColor}`}>
-                    <h2>{userMessage}</h2>
-                </div>
+                <Alerts messageColor={messageColor} userMessage={userMessage}></Alerts>
             }
             <div className="form-container">
                 {formState === 'login' && <Login setFormState={setFormState} setIsAuth={setIsAuth} setUserMessage={setUserMessage} setMessageColor={setMessageColor} />}
