@@ -5,8 +5,12 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { v4 } from 'uuid'
+import { useContext } from 'react'
+import BlogContext from '../BlogContext'
 
-function Create({ isAuth, setIsActive }) {
+function Create() {
+
+    const { isAuth, setIsActive } = useContext(BlogContext)
 
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')

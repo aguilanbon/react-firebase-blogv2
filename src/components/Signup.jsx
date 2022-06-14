@@ -17,7 +17,10 @@ function Signup({ setUserMessage, setFormState, setMessageColor }) {
             setMessageColor('success')
             setUserMessage('Yay! you may now log in.')
         } catch (error) {
-            console.log(error);
+            if (error.code === 'auth/email-already-in-use') {
+                setMessageColor('danger')
+                setUserMessage('Email already in use')
+            }
         }
     }
 
