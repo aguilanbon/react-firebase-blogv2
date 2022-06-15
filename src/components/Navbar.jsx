@@ -36,7 +36,7 @@ function Navbar() {
     return () => {
       document.removeEventListener('mousedown', handler)
     }
-  }, [])
+  }, [navRef])
 
 
   useEffect(() => {
