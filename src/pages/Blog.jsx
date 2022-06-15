@@ -16,11 +16,11 @@ function Blog({postId}) {
             const postRef = doc(db, 'posts', id.postId)
             const response = await getDoc(postRef)
             setBlogPost(response.data())
+            setAuthor(response.data().author)
+
         }
         getById()
     },[])
-
-    console.log(blogPost);
 
   return (
     <div className='blog-post__container'>
@@ -32,7 +32,7 @@ function Blog({postId}) {
                 <h1>{blogPost.title}</h1>
             </div>
             <div className="blog-post__content__author">
-                {/* <p>{blogPost.author}</p> */}
+                <p>{author.name}</p>
             </div>
             <div className="blog-post__content__body">
                 <p>{blogPost.content}</p>

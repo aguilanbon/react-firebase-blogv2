@@ -443,6 +443,8 @@ font-family: 'Ubuntu', sans-serif; */
 
 .blog-post__content__author {
   opacity: .8;
+  border-left: .3em solid rgb(54, 54, 238);
+  padding-left: 1em;
 }
 
 .blog-post__content__image {
