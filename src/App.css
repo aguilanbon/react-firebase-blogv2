@@ -147,7 +147,7 @@ font-family: 'Ubuntu', sans-serif; */
   display: flex;
   flex-direction: column;
   width: 60%;
-  height: auto;
+  max-height: 450px;
   margin: 0 auto;
   border-radius: .5em;
   border: 1px solid rgba(77, 77, 77, .3);
@@ -168,7 +168,7 @@ font-family: 'Ubuntu', sans-serif; */
 
 .card-container__image img {
   width: 100%;
-  max-height: 220px;
+  max-height: 200px;
   object-fit: cover;
   border-radius: .5em .5em 0 0;
 }
@@ -182,13 +182,20 @@ font-family: 'Ubuntu', sans-serif; */
   color: rgb(41, 39, 39);
 }
 
+.card-container__content__body {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  max-height: 5.5ch;
+}
+
 .card-container__content__body p {
   font-size: .85em;
   color: rgb(44, 44, 44);
-  margin-top: 2em;
-  overflow: hidden;
-  overflow-y: auto;
-  max-height: 20em;
+  margin-top: 1em;
+  /* max-height: 2.8em; */
+  width: 100%;
 }
 
 .card-container__content__body p::-webkit-scrollbar {
@@ -407,6 +414,11 @@ font-family: 'Ubuntu', sans-serif; */
 
 .active {
   border-bottom: 2px solid rgb(53, 53, 209);
+}
+
+/* Blog Post */
+.blog-post__container {
+  margin-top: 1em;
 }
 
 /* Media Queries */
