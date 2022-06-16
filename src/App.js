@@ -6,6 +6,7 @@ import Create from './pages/Create';
 import UserForm from './pages/UserForm';
 import { BlogProvider } from './BlogContext';
 import Blog from './pages/Blog';
+import Edit from './pages/Edit';
 
 function App() {
 
@@ -16,7 +17,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />}></Route>
             <Route path='/blog/:postId' element={<Blog />}></Route>
-            <Route path='/blog/edit/:postId' element={<Create />}></Route>
+            <Route path='/blog/edit/:postId' element={<Edit />}></Route>
             <Route path='/blog/create' element={<Create />}></Route>
             <Route path='/user/login' element={<UserForm />}></Route>
           </Routes>
