@@ -4,7 +4,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { db, storage } from '../firebase-config'
+import { auth, db, storage } from '../firebase-config'
 
 function Blog({postId}) {
     let id = useParams(postId)
@@ -15,20 +15,16 @@ function Blog({postId}) {
     let navigate = useNavigate()
 
     const deletePost = async (pid) => {
-        
         try {
             const getPath = ref(storage, blogPost.imageURL)
             const objRef = ref(storage, getPath.fullPath)
-
             await deleteObject(objRef)
             await deleteDoc(doc(db, 'posts', pid));
-
             navigate('/')
         } catch (error) {
             if(error.message === 'storage/object-not-found') return
                 await deleteDoc(doc(db, 'posts', pid));
         }
-      
     }
 
     // const editPost = () => {
@@ -40,10 +36,11 @@ function Blog({postId}) {
             const response = await getDoc(postRef)
             setBlogPost(response.data())
             setAuthor(response.data().author)
+            console.log(auth.currentUser.uid);
         }
         getById()
     },[id.postId])
-
+    
   return (
     <div className='blog-post__container'>
         <div className="blog-post__content">
@@ -59,10 +56,12 @@ function Blog({postId}) {
             <div className="blog-post__content__body">
                 <p>{blogPost.content}</p>
             </div>
-            <div className="blog-post__actions">
-                <button>Edit</button>
-                <button onClick={() => deletePost(id.postId)}>Delete</button>
-            </div>
+            {author.id === auth.currentUser.uid ? 
+                <div className="blog-post__actions">
+                    <button>Edit</button>
+                    <button onClick={() => deletePost(id.postId)}>Delete</button>
+                </div> : ''
+            }
         </div>
     </div>
   )
