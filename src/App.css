@@ -421,12 +421,16 @@ font-family: 'Ubuntu', sans-serif; */
   margin-top: 1em;
   display: flex;
   margin: 0 auto;
-  width: 50%;
+  max-width: 50%;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   margin-bottom: 4em;
   padding: 0 4em;
+}
+
+.blog-post__content {
+  width: 100%;
 }
 
 .blog-post__actions {
