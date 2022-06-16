@@ -11,6 +11,7 @@ function Blog({postId}) {
 
     const [blogPost, setBlogPost] = useState({})
     const [author, setAuthor] = useState('')
+    const [authUser, setAuthUser] = useState(null)
 
     let navigate = useNavigate()
 
@@ -27,7 +28,6 @@ function Blog({postId}) {
                 navigate('/')
             }
         } catch (error) {
-            console.log(error)  
             if(error.message === 'storage/object-not-found') {
                 await deleteDoc(doc(db, 'posts', pid));
             }
@@ -43,9 +43,11 @@ function Blog({postId}) {
             const response = await getDoc(postRef)
             setBlogPost(response.data())
             setAuthor(response.data().author)
+            if(auth.currentUser === null) return
+            setAuthUser(auth.currentUser.uid)
         }
         getById()
-    },[id.postId])
+    },[id.postId, authUser])
     
   return (
     <div className='blog-post__container'>
@@ -62,7 +64,7 @@ function Blog({postId}) {
             <div className="blog-post__content__body">
                 <p>{blogPost.content}</p>
             </div>
-            {author.id === auth.currentUser.uid ? 
+            {author.id === authUser ? 
                 <div className="blog-post__actions">
                     <button>
                         <Link to={`/blog/edit/${id.postId}`}>Edit</Link>
