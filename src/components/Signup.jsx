@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../firebase-config'
 import { motion } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
 
 function Signup({ setUserMessage, setFormState, setMessageColor, isAuth }) {
 
@@ -10,7 +9,6 @@ function Signup({ setUserMessage, setFormState, setMessageColor, isAuth }) {
     const [signUpPassword, setSignUpPassword] = useState('')
     const [signUpName, setSignUpName] = useState('')
 
-    let navigate = useNavigate()
 
     const signUp = async () => {
         try {

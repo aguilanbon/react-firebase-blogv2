@@ -11,7 +11,7 @@ function BlogCard({ title, content, author, uri, postId }) {
                     <motion.div animate={{ opacity: [0, 1] }} transition={{ duration: 2 }} className="card-container__image">
                         <img loading='lazy' src={uri} alt="" />
                     </motion.div>
-                    <motion.div animate={{ x: [-150, 0] }} transition={{ duration: 1 }} className="card-container__content">
+                    <motion.div animate={{ x: [-150, 0], opacity: [0, 1] }} transition={{ duration: 2 }} className="card-container__content">
                         <div className="card-container__content__title">
                             <h1>{title}</h1>
                         </div>

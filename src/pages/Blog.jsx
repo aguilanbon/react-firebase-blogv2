@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { auth, db, storage } from '../firebase-config'
+import { motion } from 'framer-motion'
 
 function Blog({postId}) {
     let id = useParams(postId)
@@ -52,18 +53,18 @@ function Blog({postId}) {
   return (
     <div className='blog-post__container'>
         <div className="blog-post__content">
-            <div className="blog-post__content__image">
+            <motion.div animate={{y: [-100, 0]}} className="blog-post__content__image">
                 <img src={blogPost.imageURL} alt="" />
-            </div>
-            <div className="blog-post__content__title">
+            </motion.div>
+            <motion.div animate={{y: [100, 0], opacity: [0, 1]}} transition={{delay: 0.5}} className="blog-post__content__title">
                 <h1>{blogPost.title}</h1>
-            </div>
-            <div className="blog-post__content__author">
+            </motion.div>
+            <motion.div animate={{y: [100, 0], opacity: [0, 1]}} transition={{delay: 1}} className="blog-post__content__author">
                 <p>{author.name}</p>
-            </div>
-            <div className="blog-post__content__body">
+            </motion.div>
+            <motion.div animate={{y: [100, 0], opacity: [0, 1]}} transition={{delay: 1.5}} className="blog-post__content__body">
                 <p>{blogPost.content}</p>
-            </div>
+            </motion.div>
             {author.id === authUser ? 
                 <div className="blog-post__actions">
                     <button id='edit-btn'>
