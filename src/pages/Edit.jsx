@@ -25,7 +25,7 @@ function Edit({postId}) {
         await imageUpload()
         const updateRef = doc(db, 'posts', id.postId)
             await updateDoc(updateRef, {
-              title, content, imageURL : imgURL
+              title, content, imageURL : imgURL === '' ? imgLink : imgURL
         })
         navigate('/')
 

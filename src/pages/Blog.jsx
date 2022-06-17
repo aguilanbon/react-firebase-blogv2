@@ -66,10 +66,10 @@ function Blog({postId}) {
             </div>
             {author.id === authUser ? 
                 <div className="blog-post__actions">
-                    <button>
+                    <button id='edit-btn'>
                         <Link to={`/blog/edit/${id.postId}`}>Edit</Link>
                     </button>
-                    <button onClick={() => deletePost(id.postId)}>Delete</button>
+                    <button id='del-btn' onClick={() => deletePost(id.postId)}>Delete</button>
                 </div> : ''
             }
         </div>
