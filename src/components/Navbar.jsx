@@ -32,10 +32,10 @@ function Navbar() {
     })
 
     document.addEventListener('mousedown', handler)
-
     return () => {
       document.removeEventListener('mousedown', handler)
     }
+
   }, [navRef])
 
 
