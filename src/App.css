@@ -441,6 +441,37 @@ font-family: 'Ubuntu', sans-serif; */
   margin-left: auto;
 }
 
+.blog-post__actions button {
+  padding: .5em 1em;
+  margin: 0 .25em;
+  border-radius: .5em;
+  border: none;
+  cursor: pointer;
+}
+
+.blog-post__actions #edit-btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.blog-post__actions #edit-btn {
+  background-color: rgb(235, 180, 70);
+}
+
+.blog-post__actions #edit-btn:hover {
+  background-color: rgb(240, 166, 20);
+}
+
+.blog-post__actions #del-btn {
+  background-color: rgb(236, 77, 77);
+  color: white;
+}
+
+.blog-post__actions #del-btn:hover {
+  background-color: rgb(243, 19, 19);
+}
+
+
 .blog-post__content__title {
   margin-top: 1em;
 }
@@ -457,6 +488,8 @@ font-family: 'Ubuntu', sans-serif; */
   justify-content: center;
   width: 100%;
   margin-top: 4em;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .blog-post__content__image img {
