@@ -11,20 +11,21 @@ function Edit({postId}) {
 
   let id = useParams(postId)
   let navigate = useNavigate()
+  let imgURL = ''
 
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [image, setImage] = useState(null)
-  const [imageURL, setImageURL] = useState('')
+  const [imgLink, setImgLink] = useState('')
   const [buttonState, setButtonState] = useState(false)
 
   const updatePost = async () => {
       setButtonState(true)
-      imageUpload()
-     try {
+      try {
+        await imageUpload()
         const updateRef = doc(db, 'posts', id.postId)
             await updateDoc(updateRef, {
-              title, content, imageURL
+              title, content, imageURL : imgURL
         })
         navigate('/')
 
@@ -38,7 +39,7 @@ function Edit({postId}) {
       const imageRef = ref(storage, `blogBanners/${image.name + v4()}`)
       await uploadBytes(imageRef, image)
       const imgURI = await getDownloadURL(imageRef)
-      setImageURL(imgURI)
+      imgURL = imgURI
   }
   
   useEffect(() => {
@@ -47,7 +48,7 @@ function Edit({postId}) {
         const response = await getDoc(postRef)
         setTitle(response.data().title)
         setContent(response.data().content)
-        setImageURL(response.data().imageURL)
+        setImgLink(response.data().imageURL)
     }
     getById()
   },[id.postId])

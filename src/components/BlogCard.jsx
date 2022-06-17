@@ -2,15 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
-// import { doc, deleteDoc } from 'firebase/firestore'
-// import { db, auth } from '../firebase-config'
-
 function BlogCard({ title, content, author, uri, postId }) {
-
-    // const deletePost = async (id) => {
-    //     await deleteDoc(doc(db, 'posts', id))
-    //     console.log('click');
-    // }
 
     return (
         <motion.div whileHover={{ scale: 1.1 }} className='blog-card'>
