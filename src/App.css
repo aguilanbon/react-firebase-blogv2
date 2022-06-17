@@ -228,6 +228,7 @@ font-family: 'Ubuntu', sans-serif; */
   width: 60%;
   margin-top: 2em;
   padding-bottom: 6em;
+  min-height: 100%;
 }
 
 .form-container {
@@ -508,6 +509,19 @@ font-family: 'Ubuntu', sans-serif; */
   text-align: justify;
   white-space: pre-wrap;
   color: rgba(0, 0, 0, .8);
+}
+
+/* Footer */
+
+.footer-container {
+  margin: 2em 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  font-size: .7em;
+  opacity: .8;
 }
 
 /* Media Queries */
