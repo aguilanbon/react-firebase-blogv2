@@ -7,6 +7,7 @@ import UserForm from './pages/UserForm';
 import { BlogProvider } from './BlogContext';
 import Blog from './pages/Blog';
 import Edit from './pages/Edit';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route path='/blog/create' element={<Create />}></Route>
             <Route path='/user/login' element={<UserForm />}></Route>
           </Routes>
+        <Footer />
       </div>
     </BlogProvider>
   );

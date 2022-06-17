@@ -6,7 +6,7 @@ import Alerts from '../components/Alerts'
 
 function UserForm() {
 
-    const { messageColor, userMessage, setMessageColor, setUserMessage, formState, setFormState, setIsAuth } = useContext(BlogContext)
+    const { messageColor, userMessage, setMessageColor, setUserMessage, formState, setFormState, setIsAuth, isAuth } = useContext(BlogContext)
 
     return (
         <div className='user-form'>
@@ -14,8 +14,8 @@ function UserForm() {
                 <Alerts messageColor={messageColor} userMessage={userMessage}></Alerts>
             }
             <div className="form-container">
-                {formState === 'login' && <Login setFormState={setFormState} setIsAuth={setIsAuth} setUserMessage={setUserMessage} setMessageColor={setMessageColor} />}
-                {formState === 'signup' && <Signup setFormState={setFormState} setUserMessage={setUserMessage} setMessageColor={setMessageColor} />}
+                {formState === 'login' && <Login setFormState={setFormState} setIsAuth={setIsAuth} setUserMessage={setUserMessage} setMessageColor={setMessageColor} isAuth={isAuth} />}
+                {formState === 'signup' && <Signup setFormState={setFormState} setUserMessage={setUserMessage} setMessageColor={setMessageColor} isAuth={isAuth} />}
             </div>
         </div>
     )

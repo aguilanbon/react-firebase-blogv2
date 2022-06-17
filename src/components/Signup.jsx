@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../firebase-config'
 import { motion } from 'framer-motion'
 
-function Signup({ setUserMessage, setFormState, setMessageColor }) {
+function Signup({ setUserMessage, setFormState, setMessageColor, isAuth }) {
 
     const [signUpEmail, setSignUpEmail] = useState('')
     const [signUpPassword, setSignUpPassword] = useState('')
     const [signUpName, setSignUpName] = useState('')
+
 
     const signUp = async () => {
         try {
@@ -42,7 +43,7 @@ function Signup({ setUserMessage, setFormState, setMessageColor }) {
                 <input type="password" name="" id="" className='inputBox' autoComplete='off' required onChange={e => setSignUpPassword(e.target.value)} />
             </div>
             <div className="form-group">
-                <input type="submit" value="Sign up" />
+                <motion.input whileHover={{ scale: 1.1 }} whileTap={{ scaleX: 0.9 }}  type="submit" value="Sign up" />
             </div>
             <div className="form-footer">
                 <p>You're almost ready to post a blog!</p>

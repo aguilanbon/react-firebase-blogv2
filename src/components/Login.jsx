@@ -1,10 +1,10 @@
 import { auth, provider } from '../firebase-config'
 import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
 
-function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage }) {
+function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage, isAuth }) {
 
     const [signInEmail, setSignInEmail] = useState('')
     const [signInPassword, setSignInPassword] = useState('')
@@ -32,6 +32,12 @@ function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage }) {
         }
     }
 
+    useEffect(() => {
+        if (isAuth) {
+            navigate('/')
+        }
+    })
+
     return (
         <motion.div animate={{ opacity: [0, 1] }} transition={{ duration: .7 }} className="googleAuth-container">
             <button onClick={signInWithGoogle}><img src="../google.png" alt="" /> Sign in with Google</button>
@@ -48,7 +54,7 @@ function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage }) {
                     <input type="password" name="" id="log2" className='inputBox' required autoComplete='off' onChange={e => setSignInPassword(e.target.value)} />
                 </div>
                 <div className="form-group">
-                    <input type="submit" value="Log In" />
+                    <motion.input whileHover={{ scale: 1.1 }} whileTap={{ scaleX: 0.9 }} type="submit" value="Log In" />
                 </div>
                 <div className="form-footer">
                     <p>Not yet signed up? <span style={linkStyle} onClick={() => {

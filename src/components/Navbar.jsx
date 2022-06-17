@@ -62,6 +62,7 @@ function Navbar() {
                 <li><button className='logout' href='#' onClick={() => {
                   setIsActive('')
                   signOutWithGoogle()
+                  setUserMessage('')
                 }}>Sign out</button></li>
               </>
             }
