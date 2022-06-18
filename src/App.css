@@ -512,6 +512,12 @@ font-family: 'Ubuntu', sans-serif; */
 
 /* Media Queries */
 
+@media only screen and (max-width: 1400px) {
+  .blog-post__container {
+    max-width: 70%;
+  }
+}
+
 @media only screen and (max-width: 1280px) {
   .home-container {
     width: 80%;
@@ -572,6 +578,10 @@ font-family: 'Ubuntu', sans-serif; */
   .create-form-container form {
     width: 100%;
   }
+
+  .blog-post__container {
+    max-width: 80%;
+  }
 }
 
 @media only screen and (max-width: 769px) {
@@ -609,6 +619,11 @@ font-family: 'Ubuntu', sans-serif; */
 
   .create-form-container form {
     width: 100%;
+  }
+
+  .blog-post__container {
+    max-width: 90%;
+    padding: 0 2em;
   }
 }
 
@@ -653,6 +668,11 @@ font-family: 'Ubuntu', sans-serif; */
   .create-form-container form {
     width: 100%;
     padding: 1.5em;
+  }
+
+  .blog-post__container {
+    max-width: 100%;
+    padding: 0 2em;
   }
 
 }
