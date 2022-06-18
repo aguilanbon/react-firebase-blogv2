@@ -43,12 +43,21 @@ function Blog({postId}) {
 
     useEffect(() => {
         const getById = async () => {
-            const postRef = doc(db, 'posts', id.postId)
-            const response = await getDoc(postRef)
-            setBlogPost(response.data())
-            setAuthor(response.data().author)
-            if(auth.currentUser === null) return
-            setAuthUser(auth.currentUser.uid)
+            try {
+                const postRef = doc(db, 'posts', id.postId)
+                const response = await getDoc(postRef)
+                if(response._document !== null) {
+                    setBlogPost(response.data())
+                    setAuthor(response.data().author)
+                    if(auth.currentUser === null) return
+                    setAuthUser(auth.currentUser.uid)
+                } else {
+                    navigate('*')
+                }
+
+            } catch (error) {
+                console.log(error);
+            }
         }
         getById()
     },[id.postId, authUser])
