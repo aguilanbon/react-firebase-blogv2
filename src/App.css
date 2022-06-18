@@ -181,14 +181,6 @@ font-family: 'Ubuntu', sans-serif; */
   color: rgb(41, 39, 39);
 }
 
-.card-container__content__body {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
-  max-height: 5.5ch;
-}
-
 .card-container__content__body p {
   font-size: .85em;
   color: rgb(44, 44, 44);
@@ -617,17 +609,17 @@ font-family: 'Ubuntu', sans-serif; */
   }
 
   .card-container__content__title h1 {
-  color: rgb(41, 39, 39);
-  font-size: 1.4rem;
-}
+    color: rgb(41, 39, 39);
+    font-size: 1.4rem;
+  }
 
-.card-container__content__body p {
-  font-size: .7em;
-}
+  .card-container__content__body p {
+    font-size: .7em;
+  }
 
-.card-container__content__footer p {
-  font-size: .6em;
-}
+  .card-container__content__footer p {
+    font-size: .6em;
+  }
 
   .card-container {
     width: 80%;
@@ -671,11 +663,11 @@ font-family: 'Ubuntu', sans-serif; */
   .blog-card {
     width: 90%;
   }
-  
+
   .card-container__content__title h1 {
-  color: rgb(41, 39, 39);
-  font-size: 1rem;
-}
+    color: rgb(41, 39, 39);
+    font-size: 1rem;
+  }
 
   .card-container {
     width: 90%;

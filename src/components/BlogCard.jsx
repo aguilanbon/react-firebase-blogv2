@@ -17,7 +17,7 @@ function BlogCard({ title, content, author, uri, postId }) {
                         </div>
                         <div className="card-container__content__body">
                             <p style={{ whiteSpace: 'pre-wrap' }}>
-                                {content}
+                                {content.substring(0, 100)}...
                             </p>
                         </div>
                         <div className="card-container__content__footer">
