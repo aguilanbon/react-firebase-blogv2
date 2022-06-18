@@ -36,7 +36,7 @@ function Create() {
                     id: auth.currentUser.uid
                 }
             })
-            // toast.promise(addDoc, {
+            // toast.promise(response, {
             //     loading: 'Loading',
             //     success: 'Got the data',
             //     error: 'Error when fetching',

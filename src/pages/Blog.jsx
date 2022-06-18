@@ -10,12 +10,12 @@ import toast from 'react-hot-toast'
 
 function Blog({postId}) {
     let id = useParams(postId)
+    const navigate = useNavigate()
 
     const [blogPost, setBlogPost] = useState({})
     const [author, setAuthor] = useState('')
     const [authUser, setAuthUser] = useState(null)
 
-    let navigate = useNavigate()
 
     const deletePost = async (pid) => {
         try {
@@ -43,15 +43,24 @@ function Blog({postId}) {
 
     useEffect(() => {
         const getById = async () => {
-            const postRef = doc(db, 'posts', id.postId)
-            const response = await getDoc(postRef)
-            setBlogPost(response.data())
-            setAuthor(response.data().author)
-            if(auth.currentUser === null) return
-            setAuthUser(auth.currentUser.uid)
+            try {
+                const postRef = doc(db, 'posts', id.postId)
+                const response = await getDoc(postRef)
+                if(response._document !== null) {
+                    setBlogPost(response.data())
+                    setAuthor(response.data().author)
+                    if(auth.currentUser === null) return
+                    setAuthUser(auth.currentUser.uid)
+                } else {
+                    navigate('*')
+                }
+
+            } catch (error) {
+                console.log(error);
+            }
         }
         getById()
-    },[id.postId, authUser])
+    },[id.postId, authUser, navigate])
     
   return (
     <div className='blog-post__container'>

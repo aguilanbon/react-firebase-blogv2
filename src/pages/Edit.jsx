@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { getDoc, doc, updateDoc } from 'firebase/firestore'
 import { db, storage } from '../firebase-config'
 import { useNavigate } from 'react-router-dom'
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { v4 } from 'uuid';
 
 function Edit({postId}) {
@@ -36,6 +36,11 @@ function Edit({postId}) {
 
   const imageUpload = async () => {
       if (image == null) return
+
+      const currentObjURL = ref(storage, imgLink)
+      const currentObjRef = ref(storage, currentObjURL.fullPath)
+      await deleteObject(currentObjRef)
+
       const imageRef = ref(storage, `blogBanners/${image.name + v4()}`)
       await uploadBytes(imageRef, image)
       const imgURI = await getDownloadURL(imageRef)

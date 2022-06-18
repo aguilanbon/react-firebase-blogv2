@@ -139,7 +139,7 @@ font-family: 'Ubuntu', sans-serif; */
   width: 70%;
   margin-top: 2em;
   min-height: auto;
-  margin-bottom: 1.5em;
+  margin-bottom: .5em;
 }
 
 .card-container {
@@ -179,14 +179,6 @@ font-family: 'Ubuntu', sans-serif; */
 
 .card-container__content__title h1 {
   color: rgb(41, 39, 39);
-}
-
-.card-container__content__body {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
-  max-height: 5.5ch;
 }
 
 .card-container__content__body p {
@@ -404,10 +396,12 @@ font-family: 'Ubuntu', sans-serif; */
 }
 
 /* Blog Post */
+
 .blog-post__container {
   margin-top: 1em;
   display: flex;
   margin: 0 auto;
+  min-width: 50%;
   max-width: 50%;
   align-items: center;
   justify-content: center;
@@ -510,7 +504,34 @@ font-family: 'Ubuntu', sans-serif; */
   opacity: .8;
 }
 
+/* Page Not Found */
+
+.notfound-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10% auto;
+  flex-direction: column;
+}
+
+.notfound-container h1 {
+  font-size: 7em;
+  background-color: rgb(236, 77, 77);
+  padding: .10em .25em;
+  margin-bottom: 1.5rem;
+  border-radius: .5em;
+  color: antiquewhite;
+}
+
 /* Media Queries */
+
+@media only screen and (max-width: 1400px) {
+  .blog-post__container {
+    max-width: 70%;
+  }
+}
 
 @media only screen and (max-width: 1280px) {
   .home-container {
@@ -572,6 +593,10 @@ font-family: 'Ubuntu', sans-serif; */
   .create-form-container form {
     width: 100%;
   }
+
+  .blog-post__container {
+    max-width: 80%;
+  }
 }
 
 @media only screen and (max-width: 769px) {
@@ -581,6 +606,19 @@ font-family: 'Ubuntu', sans-serif; */
 
   .blog-card {
     width: 80%;
+  }
+
+  .card-container__content__title h1 {
+    color: rgb(41, 39, 39);
+    font-size: 1.4rem;
+  }
+
+  .card-container__content__body p {
+    font-size: .7em;
+  }
+
+  .card-container__content__footer p {
+    font-size: .6em;
   }
 
   .card-container {
@@ -610,6 +648,11 @@ font-family: 'Ubuntu', sans-serif; */
   .create-form-container form {
     width: 100%;
   }
+
+  .blog-post__container {
+    max-width: 90%;
+    padding: 0 2em;
+  }
 }
 
 @media only screen and (max-width: 480px) {
@@ -619,6 +662,11 @@ font-family: 'Ubuntu', sans-serif; */
 
   .blog-card {
     width: 90%;
+  }
+
+  .card-container__content__title h1 {
+    color: rgb(41, 39, 39);
+    font-size: 1rem;
   }
 
   .card-container {
@@ -653,6 +701,11 @@ font-family: 'Ubuntu', sans-serif; */
   .create-form-container form {
     width: 100%;
     padding: 1.5em;
+  }
+
+  .blog-post__container {
+    max-width: 100%;
+    padding: 0 2em;
   }
 
 }

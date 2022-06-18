@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import Login from '../components/Login'
 import Signup from '../components/Signup'
 import BlogContext from '../BlogContext';
