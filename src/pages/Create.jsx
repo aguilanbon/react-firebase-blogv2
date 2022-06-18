@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { v4 } from 'uuid'
 import { useContext } from 'react'
 import BlogContext from '../BlogContext'
-// import toast from 'react-hot-toast'
+import toast from 'react-hot-toast'
 
 function Create() {
 
@@ -29,18 +29,18 @@ function Create() {
         setIsActive('')
         try {
             await imageUpload()
-            await addDoc(postsCollection, {
+            const response = await addDoc(postsCollection, {
                 title, content, imageURL: imgURL,
                 author: {
                     name: auth.currentUser.displayName,
                     id: auth.currentUser.uid
                 }
             })
-            // toast.promise(addDoc, {
-            //     loading: 'Loading',
-            //     success: 'Got the data',
-            //     error: 'Error when fetching',
-            // });
+            toast.promise(response, {
+                loading: 'Loading',
+                success: 'Got the data',
+                error: 'Error when fetching',
+            });
             navigate('/')
         } catch (error) {
             console.log(error);

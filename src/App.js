@@ -9,6 +9,7 @@ import Blog from './pages/Blog';
 import Edit from './pages/Edit';
 import Footer from './components/Footer';
 import { Toaster } from 'react-hot-toast';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
             <Route path='/blog/edit/:postId' element={<Edit />}></Route>
             <Route path='/blog/create' element={<Create />}></Route>
             <Route path='/user/login' element={<UserForm />}></Route>
+            <Route path='*' element={<PageNotFound />}></Route>
           </Routes>
         <Footer />
       </div>
