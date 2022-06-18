@@ -139,7 +139,7 @@ font-family: 'Ubuntu', sans-serif; */
   width: 70%;
   margin-top: 2em;
   min-height: auto;
-  margin-bottom: 1.5em;
+  margin-bottom: .5em;
 }
 
 .card-container {
@@ -616,6 +616,19 @@ font-family: 'Ubuntu', sans-serif; */
     width: 80%;
   }
 
+  .card-container__content__title h1 {
+  color: rgb(41, 39, 39);
+  font-size: 1.4rem;
+}
+
+.card-container__content__body p {
+  font-size: .7em;
+}
+
+.card-container__content__footer p {
+  font-size: .6em;
+}
+
   .card-container {
     width: 80%;
   }
@@ -658,6 +671,11 @@ font-family: 'Ubuntu', sans-serif; */
   .blog-card {
     width: 90%;
   }
+  
+  .card-container__content__title h1 {
+  color: rgb(41, 39, 39);
+  font-size: 1rem;
+}
 
   .card-container {
     width: 90%;
