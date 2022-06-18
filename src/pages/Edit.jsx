@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
-import { getDoc, doc, updateDoc, deleteDoc } from 'firebase/firestore'
+import { getDoc, doc, updateDoc } from 'firebase/firestore'
 import { db, storage } from '../firebase-config'
 import { useNavigate } from 'react-router-dom'
 import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage';

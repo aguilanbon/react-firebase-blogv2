@@ -29,7 +29,7 @@ function Create() {
         setIsActive('')
         try {
             await imageUpload()
-            const response = await addDoc(postsCollection, {
+            await addDoc(postsCollection, {
                 title, content, imageURL: imgURL,
                 author: {
                     name: auth.currentUser.displayName,

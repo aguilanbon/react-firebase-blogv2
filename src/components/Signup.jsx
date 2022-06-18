@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../firebase-config'
 import { motion } from 'framer-motion'
-import toast from 'react-hot-toast'
 
-function Signup({ setUserMessage, setFormState, setMessageColor, isAuth }) {
+function Signup({ setUserMessage, setFormState, setMessageColor }) {
 
     const [signUpEmail, setSignUpEmail] = useState('')
     const [signUpPassword, setSignUpPassword] = useState('')

@@ -10,12 +10,12 @@ import toast from 'react-hot-toast'
 
 function Blog({postId}) {
     let id = useParams(postId)
+    const navigate = useNavigate()
 
     const [blogPost, setBlogPost] = useState({})
     const [author, setAuthor] = useState('')
     const [authUser, setAuthUser] = useState(null)
 
-    let navigate = useNavigate()
 
     const deletePost = async (pid) => {
         try {
@@ -60,7 +60,7 @@ function Blog({postId}) {
             }
         }
         getById()
-    },[id.postId, authUser])
+    },[id.postId, authUser, navigate])
     
   return (
     <div className='blog-post__container'>
