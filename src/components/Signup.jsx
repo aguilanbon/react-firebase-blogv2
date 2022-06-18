@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { auth } from '../firebase-config'
 import { motion } from 'framer-motion'
+import toast from 'react-hot-toast'
 
 function Signup({ setUserMessage, setFormState, setMessageColor, isAuth }) {
 
