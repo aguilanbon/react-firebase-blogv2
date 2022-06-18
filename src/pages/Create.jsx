@@ -7,6 +7,7 @@ import { motion } from 'framer-motion'
 import { v4 } from 'uuid'
 import { useContext } from 'react'
 import BlogContext from '../BlogContext'
+// import toast from 'react-hot-toast'
 
 function Create() {
 
@@ -35,8 +36,12 @@ function Create() {
                     id: auth.currentUser.uid
                 }
             })
+            // toast.promise(addDoc, {
+            //     loading: 'Loading',
+            //     success: 'Got the data',
+            //     error: 'Error when fetching',
+            // });
             navigate('/')
-
         } catch (error) {
             console.log(error);
         }
@@ -49,6 +54,7 @@ function Create() {
         const imgURI = await getDownloadURL(imageRef)
         imgURL = imgURI
     }
+    
 
     useEffect(() => {
         if (!isAuth) {

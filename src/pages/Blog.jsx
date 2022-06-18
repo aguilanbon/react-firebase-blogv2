@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { auth, db, storage } from '../firebase-config'
 import { motion } from 'framer-motion'
+import toast from 'react-hot-toast'
 
 function Blog({postId}) {
     let id = useParams(postId)
@@ -22,10 +23,12 @@ function Blog({postId}) {
             const objRef = ref(storage, getPath.fullPath)
             if  (objRef.fullPath === '') {
                 await deleteDoc(doc(db, 'posts', pid));
+                toast.success('Your blog post was deleted.')
                 navigate('/')
             } else {
                 await deleteObject(objRef)
                 await deleteDoc(doc(db, 'posts', pid));
+                toast.success('Your blog post was deleted.', {duration: 4000})
                 navigate('/')
             }
         } catch (error) {
