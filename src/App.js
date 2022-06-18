@@ -8,12 +8,14 @@ import { BlogProvider } from './BlogContext';
 import Blog from './pages/Blog';
 import Edit from './pages/Edit';
 import Footer from './components/Footer';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
 
   return (
     <BlogProvider>
       <div className="App">
+        <Toaster />
         <Navbar />
           <Routes>
             <Route path='/' element={<Home />}></Route>

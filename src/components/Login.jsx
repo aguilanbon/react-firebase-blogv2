@@ -3,6 +3,7 @@ import { signInWithPopup, signInWithEmailAndPassword } from 'firebase/auth'
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
+import toast from 'react-hot-toast';
 
 function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage, isAuth }) {
 
@@ -16,6 +17,7 @@ function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage, isAut
         setIsAuth(true)
         localStorage.setItem('auth', true)
         navigate('/')
+        toast.success('Yay! Welcome back! ' + auth.currentUser.displayName)
     }
 
     const signIn = async () => {
@@ -24,6 +26,7 @@ function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage, isAut
             setIsAuth(true)
             localStorage.setItem('auth', true)
             navigate('/')
+            toast.success('Yay! Welcome back! ' + auth.currentUser.displayName)
         } catch (error) {
             if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
                 setMessageColor('danger')

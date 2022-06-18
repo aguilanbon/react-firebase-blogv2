@@ -5,6 +5,7 @@ import { signOut } from 'firebase/auth'
 import { auth } from '../firebase-config'
 import { useContext } from 'react'
 import BlogContext from '../BlogContext'
+import toast from 'react-hot-toast'
 
 function Navbar() {
 
@@ -22,6 +23,9 @@ function Navbar() {
     localStorage.clear()
     navigate('/user/login')
     setShowMobileNav(false)
+    toast('Goodbye!', {
+      icon: '👋'
+    })
   }
 
   useEffect(() => {
@@ -62,7 +66,6 @@ function Navbar() {
                 <li><button className='logout' href='#' onClick={() => {
                   setIsActive('')
                   signOutWithGoogle()
-                  setUserMessage('')
                 }}>Sign out</button></li>
               </>
             }
