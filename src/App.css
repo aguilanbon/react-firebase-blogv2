@@ -103,7 +103,7 @@ font-family: 'Ubuntu', sans-serif; */
 }
 
 .nav ul li a:hover {
-  border-bottom: 1px solid white;
+  border-bottom: 2px solid white;
   /* opacity: .8; */
 }
 
@@ -366,13 +366,20 @@ font-family: 'Ubuntu', sans-serif; */
   background-color: rgb(64, 64, 194);
   color: white;
   width: auto;
+  margin-top: 2em;
 }
 
 .create-form-container form input[type="file"] {
   display: flex;
   width: 100%;
-  margin: 1.5em 0;
+  /* margin: 1em 0; */
 }
+
+.create-form-container form input[type="file"] label {
+  font-size: .5em;
+  /* margin: 1em 0; */
+}
+
 
 /* User Messages */
 
@@ -392,7 +399,7 @@ font-family: 'Ubuntu', sans-serif; */
 }
 
 .active {
-  border-bottom: 2px solid rgb(53, 53, 209);
+  border-bottom: 2px solid white;
 }
 
 /* Blog Post */

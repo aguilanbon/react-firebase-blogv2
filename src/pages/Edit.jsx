@@ -6,6 +6,7 @@ import { db, storage } from '../firebase-config'
 import { useNavigate } from 'react-router-dom'
 import { deleteObject, getDownloadURL, ref, uploadBytes } from 'firebase/storage';
 import { v4 } from 'uuid';
+// import toast from 'react-hot-toast';
 
 function Edit({postId}) {
 
@@ -24,13 +25,19 @@ function Edit({postId}) {
       try {
         await imageUpload()
         const updateRef = doc(db, 'posts', id.postId)
-            await updateDoc(updateRef, {
+        await updateDoc(updateRef, {
               title, content, imageURL : imgURL === '' ? imgLink : imgURL
         })
+
+        // toast.promise(updateDoc, {
+        //   success: 'Yay!',
+        //   error: 'Ughhh',
+        //   loading: 'Saving'
+        // })
         navigate('/')
 
      } catch (error) {
-      
+        console.log(error);
      }
   }
 
@@ -65,12 +72,11 @@ function Edit({postId}) {
               e.preventDefault()
               updatePost()
             }}>
-                <label htmlFor="image">Banner Image</label>
-                <input type="file" name="image" id="" onChange={e => setImage(e.target.files[0])}/>
                 <label htmlFor="title">Blog Title</label>
                 <input type="text" name="title" id="" defaultValue={title} onChange={(e) => setTitle(e.target.value)} />
                 <label htmlFor="content">Content</label>
                 <textarea style={{ whiteSpace: 'pre-wrap' }} name="content" id="" cols="30" rows="15" defaultValue={content} onChange={(e) => setContent(e.target.value)}></textarea>
+                <input type="file" name="image" id="" onChange={e => setImage(e.target.files[0])}/>
                 <input type="submit" value={buttonState ? 'Updating...' : 'Update' } disabled={buttonState} />
             </form>
         </div>
