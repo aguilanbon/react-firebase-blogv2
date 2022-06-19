@@ -43,7 +43,7 @@ function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage, isAut
 
     return (
         <motion.div animate={{ opacity: [0, 1] }} transition={{ duration: .7 }} className="googleAuth-container">
-            <button onClick={signInWithGoogle}><img src="../google.png" alt="" /> Sign in with Google</button>
+            <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scaleX: 0.9 }} onClick={signInWithGoogle}><img src="../google.png" alt="" /> Sign in with Google</motion.button>
             <form onSubmit={e => {
                 e.preventDefault()
                 signIn()

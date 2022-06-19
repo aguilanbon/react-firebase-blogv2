@@ -69,12 +69,13 @@ function Create() {
                     e.preventDefault()
                     createPost()
                 }}>
-                    <label htmlFor="image">Banner Image</label>
-                    <input type="file" name="image" id="" onChange={e => setImage(e.target.files[0])} />
+                   
                     <label htmlFor="title">Blog Title</label>
                     <input type="text" name="title" id="" onChange={e => setTitle(e.target.value)} />
                     <label htmlFor="content">Content</label>
                     <textarea style={{ whiteSpace: 'pre-wrap' }} name="content" id="" cols="30" rows="15" onChange={e => setContent(e.target.value)}></textarea>
+                     <label htmlFor="image">Upload an image for your blog</label>
+                    <input type="file" name="image" id="" onChange={e => setImage(e.target.files[0])} />
                     <input type="submit" value={isLoading === true ? 'posting...' : 'post'} />
                 </form>
             </div>
