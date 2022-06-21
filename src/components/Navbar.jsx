@@ -10,7 +10,7 @@ import toast from 'react-hot-toast'
 function Navbar() {
 
   const { setUserMessage, setFormState, isAuth, setIsAuth, setIsActive, isActive } = useContext(BlogContext)
- 
+
   const navRef = useRef(null)
   const menuRef = useRef(null)
   const [showMobileNav, setShowMobileNav] = useState(false)

@@ -50,11 +50,11 @@ function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage, isAut
             }}>
                 <div className="form-group">
                     <label htmlFor="email">Email @</label>
-                    <input type="email" name="email" id="log1" className='inputBox' required autoComplete='off' onChange={e => setSignInEmail(e.target.value)} />
+                    <input type="email" name="email" id="log1" className='inputBox' required autoComplete='off' placeholder='Enter email...' onChange={e => setSignInEmail(e.target.value)} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password &#8226;&#8226;&#8226; </label>
-                    <input type="password" name="" id="log2" className='inputBox' required autoComplete='off' onChange={e => setSignInPassword(e.target.value)} />
+                    <input type="password" name="" id="log2" className='inputBox' required autoComplete='off' placeholder='*******' onChange={e => setSignInPassword(e.target.value)} />
                 </div>
                 <div className="form-group">
                     <motion.input whileHover={{ scale: 1.1 }} whileTap={{ scaleX: 0.9 }} type="submit" value="Log In" />
