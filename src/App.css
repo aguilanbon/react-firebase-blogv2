@@ -532,6 +532,15 @@ font-family: 'Ubuntu', sans-serif; */
   color: antiquewhite;
 }
 
+.create-error {
+  color: white;
+  font-size: .7rem;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: .5rem;
+  background-color: red;
+}
+
 /* Media Queries */
 
 @media only screen and (max-width: 1400px) {

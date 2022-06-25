@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import BlogCard from '../components/BlogCard'
-import { getDocs, collection } from 'firebase/firestore'
+import { getDocs, collection, query, orderBy } from 'firebase/firestore'
 import { db } from '../firebase-config'
 
 function Home() {
@@ -10,7 +10,8 @@ function Home() {
   useEffect(() => {
     const postsCollection = collection(db, 'posts')
     const getPosts = async () => {
-      const response = await getDocs(postsCollection)
+      const q = query(postsCollection, orderBy('createdAt', 'desc'))
+      const response = await getDocs(q)
       setPosts(response.docs.map(doc => ({ ...doc.data(), id: doc.id })))
     }
     getPosts()
