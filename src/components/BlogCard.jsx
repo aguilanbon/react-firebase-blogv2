@@ -26,7 +26,7 @@ function BlogCard({ title, content, author, uri, postId }) {
                     </motion.div>
                 </div>
             </Link>
-            </motion.div>
+        </motion.div>
     )
 }
 
