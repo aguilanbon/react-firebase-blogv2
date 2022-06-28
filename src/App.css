@@ -462,8 +462,6 @@ font-family: 'Ubuntu', sans-serif; */
 
 .blog-post__content__title {
   margin-top: 1em;
-  /* border-left: .2em solid rgb(54, 54, 238); */
-  /* padding-left: 1em; */
   font-size: 1.2rem;
 }
 

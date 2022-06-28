@@ -38,9 +38,6 @@ function Blog({ postId }) {
         }
     }
 
-    // const editPost = () => {
-    // }
-
     useEffect(() => {
         const getById = async () => {
             try {
