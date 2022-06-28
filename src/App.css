@@ -462,12 +462,20 @@ font-family: 'Ubuntu', sans-serif; */
 
 .blog-post__content__title {
   margin-top: 1em;
+  font-size: 1.2rem;
 }
 
 .blog-post__content__author {
-  opacity: .8;
-  border-left: .3em solid rgb(54, 54, 238);
   padding-left: 1em;
+  border-left: .2em solid rgb(54, 54, 238);
+}
+
+.blog-post__content__author p {
+  opacity: .7;
+}
+
+.blog-post__content__author #blogpost-date {
+  font-size: .7em;
 }
 
 .blog-post__content__image {
@@ -489,7 +497,13 @@ font-family: 'Ubuntu', sans-serif; */
 }
 
 .blog-post__content__body {
+  font-family: 'Roboto', sans-serif;
   margin-top: 1em;
+  font-weight: 400;
+  line-height: 1.6em;
+  padding: 0 1em;
+  display: flex;
+  align-items: flex-end ;
 }
 
 .blog-post__content__body p {
@@ -540,6 +554,29 @@ font-family: 'Ubuntu', sans-serif; */
   border-radius: .5rem;
   background-color: red;
 }
+
+/* Page Button */
+
+.page-button__container {
+  display: flex;
+  margin-top: 2em;
+}
+
+.page-button {
+  border-radius: .5em;
+  outline: none;
+  border: none;
+  padding: .5em 1em;
+  cursor: pointer;
+  background-color: rgb(87, 80, 182);
+  color: white;
+}
+
+.page-button:hover {
+  background-color: rgb(58, 48, 190);
+  transform: scale(1.1);
+}
+
 
 /* Media Queries */
 
@@ -627,6 +664,10 @@ font-family: 'Ubuntu', sans-serif; */
   .card-container__content__title h1 {
     color: rgb(41, 39, 39);
     font-size: 1.4rem;
+  }
+
+  .card-container__content__title p {
+    font-size: 3rem;
   }
 
   .card-container__content__body p {
