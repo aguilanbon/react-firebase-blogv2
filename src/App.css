@@ -419,6 +419,7 @@ font-family: 'Ubuntu', sans-serif; */
 
 .blog-post__content {
   width: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 .blog-post__actions {
@@ -462,12 +463,17 @@ font-family: 'Ubuntu', sans-serif; */
 
 .blog-post__content__title {
   margin-top: 1em;
+  border-left: .2em solid rgb(54, 54, 238);
+  padding-left: 1em;
 }
 
 .blog-post__content__author {
-  opacity: .8;
-  border-left: .3em solid rgb(54, 54, 238);
   padding-left: 1em;
+  border-left: .2em solid rgb(54, 54, 238);
+}
+
+.blog-post__content__author p {
+  opacity: .7;
 }
 
 .blog-post__content__image {
@@ -490,6 +496,9 @@ font-family: 'Ubuntu', sans-serif; */
 
 .blog-post__content__body {
   margin-top: 1em;
+  font-weight: 400;
+  line-height: 1.6em;
+  padding: 0 1em;
 }
 
 .blog-post__content__body p {
