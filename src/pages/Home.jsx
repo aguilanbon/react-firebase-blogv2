@@ -44,7 +44,7 @@ function Home() {
         <BlogCard key={post.id} title={post.title} content={post.content} author={post.author} uri={post.imageURL} postId={post.id} />
       ))}
       {pageNumber === 1 ? '' : <button onClick={() => prevPage()}>Prev</button>}
-      <button onClick={() => nextPage()}>Next</button>
+      {posts.length < 5 ? '' : <button onClick={() => nextPage()}>Next</button>}
     </div>
   )
 }
