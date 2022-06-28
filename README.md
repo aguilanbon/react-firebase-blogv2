@@ -15,8 +15,8 @@ A react-firebase blog app with fully working CRUD functionality
 
 ### `Hooks & Libraries used`
 
-Firebase v9 - storage, firestore & auth
-React Router v6 - routing
-React-hot-toast - toast notifications
-Framer-motion - component animations
+Firebase v9 - storage, firestore & auth  
+React Router v6 - routing  
+React-hot-toast - toast notifications  
+Framer-motion - component animations  
 
