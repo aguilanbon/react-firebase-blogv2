@@ -5,9 +5,9 @@ My first take at React-Firebase App
 
 ## Available Scripts
 
-Clone
-npm install
-npm start
+Clone Repository  
+npm install  
+npm start  
 
 ### `Information`
 
