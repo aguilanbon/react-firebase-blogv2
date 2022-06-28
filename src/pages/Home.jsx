@@ -43,8 +43,10 @@ function Home() {
       {posts.map((post) => (
         <BlogCard key={post.id} title={post.title} content={post.content} author={post.author} uri={post.imageURL} postId={post.id} />
       ))}
-      {pageNumber === 1 ? '' : <button onClick={() => prevPage()}>Prev</button>}
-      {posts.length < 5 ? '' : <button onClick={() => nextPage()}>Next</button>}
+      <div className="page-button__container">
+        {pageNumber === 1 ? '' : <button className='page-button' onClick={() => prevPage()}>Prev</button>}
+        {posts.length < 5 ? '' : <button className='page-button' onClick={() => nextPage()}>Next</button>}
+      </div>
     </div>
   )
 }

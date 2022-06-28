@@ -541,6 +541,29 @@ font-family: 'Ubuntu', sans-serif; */
   background-color: red;
 }
 
+/* Page Button */
+
+.page-button__container {
+  display: flex;
+  margin-top: 2em;
+}
+
+.page-button {
+  border-radius: .5em;
+  outline: none;
+  border: none;
+  padding: .5em 1em;
+  cursor: pointer;
+  background-color: rgb(87, 80, 182);
+  color: white;
+}
+
+.page-button:hover {
+  background-color: rgb(58, 48, 190);
+  transform: scale(1.1);
+}
+
+
 /* Media Queries */
 
 @media only screen and (max-width: 1400px) {
