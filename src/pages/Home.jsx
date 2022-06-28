@@ -41,7 +41,7 @@ function Home() {
     <div className='home-container'>
       <h1 style={{ marginTop: '1em', opacity: '.8' }}>Welcome</h1>
       {posts.map((post) => (
-        <BlogCard key={post.id} title={post.title} content={post.content} author={post.author} uri={post.imageURL} postId={post.id} />
+        <BlogCard key={post.id} title={post.title} content={post.content} author={post.author} uri={post.imageURL} postId={post.id} createdAt={post.createdAt} />
       ))}
       <div className="page-button__container">
         {pageNumber === 1 ? '' : <button className='page-button' onClick={() => prevPage()}>Prev</button>}

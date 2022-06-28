@@ -666,6 +666,10 @@ font-family: 'Ubuntu', sans-serif; */
     font-size: 1.4rem;
   }
 
+  .card-container__content__title p {
+    font-size: 3rem;
+  }
+
   .card-container__content__body p {
     font-size: .7em;
   }
