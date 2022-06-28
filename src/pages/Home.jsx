@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import BlogCard from '../components/BlogCard'
-import { getDocs, collection, query, orderBy, limit, startAfter, getDoc } from 'firebase/firestore'
+import { getDocs, collection, query, orderBy, limit, startAfter, getDoc, endBefore } from 'firebase/firestore'
 import { db } from '../firebase-config'
+import { async } from '@firebase/util'
 
 function Home() {
 
@@ -15,6 +16,13 @@ function Home() {
     const nextDocs = await getDocs(nextQ)
     setLastVisible(nextDocs.docs[nextDocs.docs.length - 1])
     setPosts(nextDocs.docs.map(item => ({ ...item.data(), id: item.id })))
+  }
+
+  const prevPage = async () => {
+    const prevQ = query(postsCollection, orderBy('createdAt', 'desc'), limit(5), endBefore(posts.length - 1))
+    const prevDocs = await getDocs(prevQ)
+    setLastVisible(prevDocs.docs[prevDocs.docs.length - 1])
+    setPosts(prevDocs.docs.map(item => ({ ...item.data(), id: item.id })))
   }
 
   useEffect(() => {
@@ -33,6 +41,7 @@ function Home() {
       {posts.map((post, i) => (
         <BlogCard key={post.id} title={post.title} content={post.content} author={post.author} uri={post.imageURL} postId={post.id} />
       ))}
+      <button onClick={() => prevPage()}>Prev</button>
       <button onClick={() => nextPage()}>Next</button>
     </div>
   )
