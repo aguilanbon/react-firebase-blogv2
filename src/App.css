@@ -501,7 +501,6 @@ font-family: 'Ubuntu', sans-serif; */
   margin-top: 1em;
   font-weight: 400;
   line-height: 1.6em;
-  padding: 0 1em;
   display: flex;
   align-items: flex-end ;
 }
