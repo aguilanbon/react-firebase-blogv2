@@ -627,6 +627,12 @@ font-family: 'Ubuntu', sans-serif; */
 
 @media only screen and (max-width: 1024px) {
 
+  .home-container {
+    width: 80%;
+  }
+  .card-container {
+    width: 100%;
+  }
   .user-form {
     width: 90%;
   }
@@ -654,28 +660,28 @@ font-family: 'Ubuntu', sans-serif; */
 
 @media only screen and (max-width: 769px) {
   .home-container {
-    width: 90%;
+    width: 100%;
   }
 
   .blog-card {
-    width: 80%;
+    width: 85%;
   }
 
   .card-container__content__title h1 {
     color: rgb(41, 39, 39);
-    font-size: 1.4rem;
+    font-size: 2rem;
   }
 
   .card-container__content__title p {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   .card-container__content__body p {
-    font-size: .7em;
+    font-size: .9rem;
   }
 
   .card-container__content__footer p {
-    font-size: .6em;
+    font-size: .7rem;
   }
 
   .card-container {
@@ -718,14 +724,24 @@ font-family: 'Ubuntu', sans-serif; */
   }
 
   .blog-card {
-    width: 90%;
+    width: 100%;
   }
 
   .card-container__content__title h1 {
     color: rgb(41, 39, 39);
-    font-size: 1rem;
+    font-size: 1.6rem;
+  }
+  .card-container__content__title p {
+    font-size: 4rem;
   }
 
+  .card-container__content__body p {
+    font-size: .9rem;
+  }
+
+  .card-container__content__footer p {
+    font-size: .8rem;
+  }
   .card-container {
     width: 90%;
   }
