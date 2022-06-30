@@ -8,7 +8,7 @@ function AnimatePage({ children }) {
     }
 
     return (
-        <motion.div style={{ width: '100%' }} variants={animations} initial='initial' animate='animate' exit='exit' transition={{ duration: 1 }}>
+        <motion.div style={{ width: '100%' }} variants={animations} initial='initial' animate='animate' exit='exit' transition={{ duration: .7 }}>
             {children}
         </motion.div>
     )
