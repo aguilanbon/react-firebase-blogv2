@@ -570,6 +570,7 @@ font-family: 'Ubuntu', sans-serif; */
   cursor: pointer;
   background-color: rgb(87, 80, 182);
   color: white;
+  margin: 0 .3em;
 }
 
 .page-button:hover {
