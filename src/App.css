@@ -137,9 +137,9 @@ font-family: 'Ubuntu', sans-serif; */
 
 .blog-card {
   width: 70%;
-  margin-top: 2em;
   min-height: auto;
   margin-bottom: .5em;
+  margin: 2em auto;
 }
 
 .card-container {

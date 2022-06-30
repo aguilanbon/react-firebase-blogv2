@@ -3,10 +3,10 @@ import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { db, auth, storage } from '../firebase-config'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { useNavigate } from 'react-router-dom'
-import { motion } from 'framer-motion'
 import { v4 } from 'uuid'
 import { useContext } from 'react'
 import BlogContext from '../BlogContext'
+import AnimatePage from '../components/AnimatePage'
 // import toast from 'react-hot-toast'
 
 function Create() {
@@ -70,23 +70,26 @@ function Create() {
     })
 
     return (
-        <motion.div animate={{ x: [-150, 0] }} transition={{ duration: 1 }} className='create-container'>
-            {createError === '' ? '' : <p className='create-error'>{createError}</p>}
-            <div className="create-form-container">
-                <form action="" onSubmit={e => {
-                    e.preventDefault()
-                    createPost()
-                }}>
-                    <label htmlFor="title">Blog Title</label>
-                    <input type="text" name="title" id="" onChange={e => setTitle(e.target.value)} />
-                    <label htmlFor="content">Content</label>
-                    <textarea style={{ whiteSpace: 'pre-wrap' }} name="content" id="" cols="30" rows="15" onChange={e => setContent(e.target.value)}></textarea>
-                    <label htmlFor="image">Upload an image for your blog</label>
-                    <input type="file" name="image" id="" onChange={e => setImage(e.target.files[0])} />
-                    <input type="submit" value={isLoading === true ? 'posting...' : 'post'} />
-                </form>
+        <AnimatePage>
+
+            <div className='create-container'>
+                {createError === '' ? '' : <p className='create-error'>{createError}</p>}
+                <div className="create-form-container">
+                    <form action="" onSubmit={e => {
+                        e.preventDefault()
+                        createPost()
+                    }}>
+                        <label htmlFor="title">Blog Title</label>
+                        <input type="text" name="title" id="" onChange={e => setTitle(e.target.value)} />
+                        <label htmlFor="content">Content</label>
+                        <textarea style={{ whiteSpace: 'pre-wrap' }} name="content" id="" cols="30" rows="15" onChange={e => setContent(e.target.value)}></textarea>
+                        <label htmlFor="image">Upload an image for your blog</label>
+                        <input type="file" name="image" id="" onChange={e => setImage(e.target.files[0])} />
+                        <input type="submit" value={isLoading === true ? 'posting...' : 'post'} />
+                    </form>
+                </div>
             </div>
-        </motion.div>
+        </AnimatePage>
     )
 }
 
