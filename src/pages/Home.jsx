@@ -10,11 +10,10 @@ function Home() {
   const [lastVisible, setLastVisible] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
   const [prevPageLastVisible, setPrevPageLastVisible] = useState([])
-  const [pageError, setPageError] = useState('')
 
-  const postsCollection = collection(db, 'posts')
 
   const nextPage = async () => {
+    const postsCollection = collection(db, 'posts')
     const nextQ = query(postsCollection, orderBy('createdAt', 'desc'), limit(5), startAfter(lastVisible))
     const nextDocs = await getDocs(nextQ)
     if (nextDocs.docs.length === 0) {
@@ -29,6 +28,7 @@ function Home() {
   }
 
   const prevPage = async () => {
+    const postsCollection = collection(db, 'posts')
     const prevQ = query(postsCollection, orderBy('createdAt', 'desc'), limitToLast(5), endBefore(prevPageLastVisible))
     const prevDocs = await getDocs(prevQ)
     setLastVisible(prevDocs.docs[prevDocs.docs.length - 1])
@@ -39,6 +39,7 @@ function Home() {
 
   useEffect(() => {
     const getPosts = async () => {
+      const postsCollection = collection(db, 'posts')
       const q = query(postsCollection, orderBy('createdAt', 'desc'), limit(5))
       const response = await getDocs(q)
       setPosts(response.docs.map(doc => ({ ...doc.data(), id: doc.id })))
