@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import BlogCard from '../components/BlogCard'
-import { getDocs, collection, query, orderBy, limit, startAfter, endBefore } from 'firebase/firestore'
+import { getDocs, collection, query, orderBy, limit, startAfter, endBefore, limitToLast } from 'firebase/firestore'
 import { db } from '../firebase-config'
 
 function Home() {
@@ -8,6 +8,7 @@ function Home() {
   const [posts, setPosts] = useState([])
   const [lastVisible, setLastVisible] = useState([])
   const [pageNumber, setPageNumber] = useState(1)
+  const [prevPageLastVisible, setPrevPageLastVisible] = useState([])
 
   const postsCollection = collection(db, 'posts')
 
@@ -15,14 +16,16 @@ function Home() {
     const nextQ = query(postsCollection, orderBy('createdAt', 'desc'), limit(5), startAfter(lastVisible))
     const nextDocs = await getDocs(nextQ)
     setLastVisible(nextDocs.docs[nextDocs.docs.length - 1])
+    setPrevPageLastVisible(nextDocs.docs[0])
     setPosts(nextDocs.docs.map(item => ({ ...item.data(), id: item.id })))
     setPageNumber(prevCounter => prevCounter + 1)
   }
 
   const prevPage = async () => {
-    const prevQ = query(postsCollection, orderBy('createdAt', 'desc'), limit(5), endBefore(posts.length - 1))
+    const prevQ = query(postsCollection, orderBy('createdAt', 'desc'), limitToLast(5), endBefore(prevPageLastVisible))
     const prevDocs = await getDocs(prevQ)
     setLastVisible(prevDocs.docs[prevDocs.docs.length - 1])
+    setPrevPageLastVisible(prevDocs.docs[0])
     setPosts(prevDocs.docs.map(item => ({ ...item.data(), id: item.id })))
     setPageNumber(prevCounter => prevCounter - 1)
   }
