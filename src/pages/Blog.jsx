@@ -28,8 +28,8 @@ function Blog({ postId }) {
             } else {
                 await deleteObject(objRef)
                 await deleteDoc(doc(db, 'posts', pid));
-                toast.success('Your blog post was deleted.', { duration: 4000 })
                 navigate('/')
+                toast.success('Your blog post was deleted.', { duration: 4000 })
             }
         } catch (error) {
             if (error.message === 'storage/object-not-found') {
@@ -57,7 +57,7 @@ function Blog({ postId }) {
             }
         }
         getById()
-    }, [id.postId, authUser, navigate])
+    }, [id.postId, authUser])
 
     return (
         <div className='blog-post__container'>
