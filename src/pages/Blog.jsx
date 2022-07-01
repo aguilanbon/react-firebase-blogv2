@@ -16,7 +16,6 @@ function Blog({ postId }) {
     const [author, setAuthor] = useState('')
     const [authUser, setAuthUser] = useState(null)
 
-
     const deletePost = async (pid) => {
         try {
             const getPath = ref(storage, blogPost.imageURL)
