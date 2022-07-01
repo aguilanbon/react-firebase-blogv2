@@ -518,6 +518,7 @@ font-family: 'Ubuntu', sans-serif; */
   white-space: pre-wrap;
   color: rgba(0, 0, 0, .8);
   font-size: 1.2rem;
+  line-height: 1.6;
 }
 
 /* Footer */
