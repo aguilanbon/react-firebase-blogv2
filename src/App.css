@@ -517,6 +517,7 @@ font-family: 'Ubuntu', sans-serif; */
   text-align: justify;
   white-space: pre-wrap;
   color: rgba(0, 0, 0, .8);
+  font-size: 1.2rem;
 }
 
 /* Footer */
@@ -792,5 +793,9 @@ font-family: 'Ubuntu', sans-serif; */
     max-width: 100%;
     padding: 0 2em;
   }
+
+  .blog-post__content__body p {
+  font-size: 1.4rem;
+}
 
 }
