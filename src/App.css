@@ -793,9 +793,4 @@ font-family: 'Ubuntu', sans-serif; */
     max-width: 100%;
     padding: 0 2em;
   }
-
-  .blog-post__content__body p {
-  font-size: 1.4rem;
-}
-
 }
