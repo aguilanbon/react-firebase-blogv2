@@ -74,6 +74,11 @@ font-family: 'Ubuntu', sans-serif; */
 
 /* NavBar */
 
+.navbar-container {
+  position: sticky;
+  top: 0;
+}
+
 .nav {
   background-color: rgb(31, 31, 31);
   width: 100%;
