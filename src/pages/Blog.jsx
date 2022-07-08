@@ -76,10 +76,10 @@ function Blog({ postId }) {
                 </motion.div>
                 {author.id === authUser ?
                     <div className="blog-post__actions">
-                        <button id='edit-btn'>
+                        <motion.button whileHover={{ scale: 1.2 }} id='edit-btn'>
                             <Link to={`/blog/edit/${id.postId}`}>Edit</Link>
-                        </button>
-                        <button id='del-btn' onClick={() => deletePost(id.postId)}>Delete</button>
+                        </motion.button>
+                        <motion.button whileHover={{ scale: 1.2 }} id='del-btn' onClick={() => deletePost(id.postId)}>Delete</motion.button>
                     </div> : ''
                 }
             </div>
