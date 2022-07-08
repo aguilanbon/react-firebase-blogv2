@@ -19,6 +19,7 @@ function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage, isAut
     const signInWithGoogle = async () => {
         await signInWithPopup(auth, provider)
         setIsAuth(true)
+        setUserMessage('')
         localStorage.setItem('auth', true)
         setIsActive('home')
         navigate('/')
@@ -31,6 +32,7 @@ function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage, isAut
             setIsAuth(true)
             localStorage.setItem('auth', true)
             setIsActive('home')
+            setUserMessage('')
             navigate('/')
             toast.success('Yay! Welcome back! ' + auth.currentUser.displayName)
         } catch (error) {
