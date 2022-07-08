@@ -10,7 +10,7 @@ https://react-firebase-blogv2.vercel.app/
 
 Clone Repository  
 npm install  
-npm start  
+npm start
 
 ### `Information`
 
@@ -21,5 +21,9 @@ A react-firebase blog app with fully working CRUD functionality
 Firebase v9 - storage, firestore & auth  
 React Router v6 - routing  
 React-hot-toast - toast notifications  
-Framer-motion - component animations  
+Framer-motion - component animations
 
+### `Images`
+
+![Log in page](./public/blog.png)  
+![Home Page](./public/blog1.png)
