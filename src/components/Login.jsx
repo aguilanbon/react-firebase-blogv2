@@ -4,8 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
 import toast from 'react-hot-toast';
+import { useContext } from 'react';
+import BlogContext from '../BlogContext';
 
 function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage, isAuth }) {
+
+    const {setIsActive} = useContext(BlogContext)
 
     const [signInEmail, setSignInEmail] = useState('')
     const [signInPassword, setSignInPassword] = useState('')
@@ -16,6 +20,7 @@ function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage, isAut
         await signInWithPopup(auth, provider)
         setIsAuth(true)
         localStorage.setItem('auth', true)
+        setIsActive('home')
         navigate('/')
         toast.success('Yay! Welcome back! ' + auth.currentUser.displayName)
     }
@@ -25,6 +30,7 @@ function Login({ setFormState, setIsAuth, setMessageColor, setUserMessage, isAut
             await signInWithEmailAndPassword(auth, signInEmail, signInPassword)
             setIsAuth(true)
             localStorage.setItem('auth', true)
+            setIsActive('home')
             navigate('/')
             toast.success('Yay! Welcome back! ' + auth.currentUser.displayName)
         } catch (error) {
